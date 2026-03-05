@@ -4,12 +4,26 @@ public abstract class User {
     private int userID;
     private String firstName;
     private String lastName;
-    private String fullName;
     private String email;
     private String password;
     private String role;
 
     public User() {
+        this.userID = userID;
+        this.firstName = firstname;
+        this.lastName = lastname;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+    }
+
+    public void updateUser(int userID, String firstname, String lastname, String email, String password, String role) {
+        this.userID = userID;
+        this.firstName = firstname;
+        this.lastName = lastname;
+        this.email = email;
+        this.password = password;
+        this.role = role;
     }
 
     public int getUserID() {
@@ -29,10 +43,6 @@ public abstract class User {
     }
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-    public String getFullName() {
-        setFullName();
-        return fullName;
     }
     public void setFullName() {
         this.firstName = this.firstName + this.lastName;
