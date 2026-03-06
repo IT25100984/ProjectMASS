@@ -8,7 +8,7 @@ public abstract class User {
     private String password;
     private String role;
 
-    // Add this inside User.java
+    // Empty constructor for Doctor and Patient Objects to access private variables
     public User() {
     }
 
@@ -29,7 +29,7 @@ public abstract class User {
         this.password = password;
         this.role = role;
     }
-
+    // updateUser method to update current users data
     public void updateUser(int userID, String firstname, String lastname, String email, String password, String role) {
         this.userID = userID;
         this.firstName = firstname;
@@ -39,12 +39,14 @@ public abstract class User {
         this.role = role;
     }
 
+    // implemented getters and setters for private variables
     public int getUserID() {
         return userID;
     }
     public void setUserID(int userID) {
         this.userID = userID;
     }
+
     public String getFirstName() {
         return firstName;
     }
@@ -57,21 +59,25 @@ public abstract class User {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
     public String getFullName() {
         return this.firstName + " " + this.lastName;
     }
+
     public String getEmail() {
         return email;
     }
     public void setEmail(String email) {
         this.email = email;
     }
+
     public String getPassword() {
         return password;
     }
     public void setPassword(String password) {
         this.password = password;
     }
+
     public String getRole() {
         return role;
     }

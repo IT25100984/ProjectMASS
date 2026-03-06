@@ -1,17 +1,17 @@
 package com.projectmass.model;
 
 public class Doctor extends User {
-    // Encapsulation: Private fields specific to Doctors [cite: 57, 103]
+    // Encapsulation of private attributes specific to Doctors
     private String specialization;
     private String licenseID;
     private double consultationFee;
 
-    // Default Constructor
+    // Default Constructor for Doctor object
     public Doctor() {
-        super(); // Calls the constructor of the User class
+        super(); // this super() calls the empty constructor of the User class
     }
 
-    // Overloaded Constructor
+    // Overloaded constructor to initialize Doctor attributes
     public Doctor(int id, String firstName, String lastName, String email, String specialization, String licenseID) {
         this.setUserID(id);
         this.setFirstName(firstName);
@@ -21,7 +21,7 @@ public class Doctor extends User {
         this.specialization = specialization;
         this.licenseID = licenseID;
     }
-
+    // updateDoctor to edit current Doctor attributes
     public void updateDoctor(int id, String firstName, String lastName, String email, String specialization, String licenseID) {
         this.setUserID(id);
         this.setFirstName(firstName);
@@ -32,7 +32,7 @@ public class Doctor extends User {
         this.licenseID = licenseID;
     }
 
-    // Getters and Setters (Information Hiding)
+    // Getters and Setters implemented to access private attributes
     public String getSpecialization() { return specialization; }
     public void setSpecialization(String specialization) {
         this.specialization = specialization;
@@ -44,8 +44,8 @@ public class Doctor extends User {
     public void setLicenseID(String licenseID) { this.licenseID = licenseID;}
 
     /**
-     * Polymorphism: Override a method from User
-     * For example, a custom dashboard view for doctors.
+     * Using Polymorphism to Override a method from User Object
+     * This way we can create a custom dashboard view for doctors.
      */
     @Override
     public void displayDashboard() {

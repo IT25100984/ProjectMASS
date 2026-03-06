@@ -1,22 +1,22 @@
 package com.projectmass.model;
 
-/**
- * Admin class inherits from User.
- */
+
 public class Admin extends User {
 
+    // admin constructor to implement admin object
+    // super() used to access empty User constructor
     public Admin() {
         super();
         this.setRole("ADMIN");
     }
 
-    // Polymorphism: Unique dashboard for Admins
+    // Using Polymorphism to create a unique dashboard for Admins
     @Override
     public void displayDashboard() {
         System.out.println("Displaying Admin Panel: System-wide oversight and user management.");
     }
 
-    // Admin-specific method (Information Hiding/Abstraction)
+    // Admin-specific method to generate system usage report with Information Hiding and Abstraction
     public void generateReport() {
         System.out.println("Generating system usage report...");
     }

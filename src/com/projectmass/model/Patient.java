@@ -1,13 +1,11 @@
 package com.projectmass.model;
 
-/**
- * Patient class inherits from User.
- */
+
 public class Patient extends User {
-    // Encapsulation: Private fields for data privacy
     private String medicalHistory;
     private String bloodGroup;
 
+    // patient contractor to initialize new patient data
     public Patient(String bloodGroup, String medicalHistory, String firstName, String lastName) {
         super();
         this.bloodGroup = bloodGroup;
@@ -16,7 +14,7 @@ public class Patient extends User {
         this.setLastName(lastName);
         this.setRole("PATIENT");
     }
-
+    // updatePatient method to edit current patient data
     public void updatePatient(String bloodGroup, String medicalHistory, String firstName, String lastName) {
         this.bloodGroup = bloodGroup;
         this.medicalHistory = medicalHistory;
@@ -25,7 +23,7 @@ public class Patient extends User {
         this.setRole("PATIENT");
     }
 
-    // Getters and Setters
+    // Getters and Setters to retrieve patient private data
     public String getMedicalHistory() {
         return medicalHistory;
     }
@@ -40,7 +38,10 @@ public class Patient extends User {
         this.bloodGroup = bloodGroup;
     }
 
-    // Polymorphism: Unique dashboard for Patients
+    /**
+     * Using Polymorphism to Override a method from User Object
+     * This way we can create a custom dashboard view for patients only.
+     */
     @Override
     public void displayDashboard() {
         System.out.println("Displaying Patient Portal: View your appointments and history.");
