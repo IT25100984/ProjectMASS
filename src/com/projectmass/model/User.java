@@ -8,6 +8,10 @@ public abstract class User {
     private String password;
     private String role;
 
+    // Add this inside User.java
+    public User() {
+    }
+
     // Created constructor for current users
     public User(int userID, String firstname, String lastname, String email, String password, String role) {
         this.userID = userID;
@@ -47,11 +51,11 @@ public abstract class User {
     public String getLastName() {
         return lastName;
     }
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-    public void setFullName() {
-        this.firstName = this.firstName + this.lastName;
     }
     public String getFullName() {
         return this.firstName + " " + this.lastName;
