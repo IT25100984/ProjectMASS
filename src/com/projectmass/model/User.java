@@ -8,10 +8,19 @@ public abstract class User {
     private String password;
     private String role;
 
+    // Created constructor for current users
     public User(int userID, String firstname, String lastname, String email, String password, String role) {
         this.userID = userID;
         this.firstName = firstname;
         this.lastName = lastname;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+    }
+    // Created constructor for new users (to avoid unknown userID issue)
+    public User(String firstName, String lastName, String email, String password, String role) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.role = role;
@@ -35,9 +44,6 @@ public abstract class User {
     public String getFirstName() {
         return firstName;
     }
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
     public String getLastName() {
         return lastName;
     }
@@ -46,6 +52,9 @@ public abstract class User {
     }
     public void setFullName() {
         this.firstName = this.firstName + this.lastName;
+    }
+    public String getFullName() {
+        return this.firstName + " " + this.lastName;
     }
     public String getEmail() {
         return email;
