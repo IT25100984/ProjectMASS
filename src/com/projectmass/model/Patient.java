@@ -6,20 +6,20 @@ public class Patient extends User {
     private String bloodGroup;
 
     // patient contractor to initialize new patient data
-    public Patient(String bloodGroup, String medicalHistory, String firstName, String lastName) {
-        super();
+    public Patient(int id, String firstName, String lastName, String email, String password, String bloodGroup, String medicalHistory) {
+        super(id, firstName, lastName, email, password, "PATIENT");
         this.bloodGroup = bloodGroup;
         this.medicalHistory = medicalHistory;
-        this.setFirstName(firstName);
-        this.setLastName(lastName);
-        this.setRole("PATIENT");
     }
     // updatePatient method to edit current patient data
-    public void updatePatient(String bloodGroup, String medicalHistory, String firstName, String lastName) {
+    public void updatePatient(int id, String firstName, String lastName, String email, String password, String bloodGroup, String medicalHistory) {
         this.bloodGroup = bloodGroup;
         this.medicalHistory = medicalHistory;
+        this.setUserID(id);
         this.setFirstName(firstName);
         this.setLastName(lastName);
+        this.setEmail(email);
+        this.setPassword(password);
         this.setRole("PATIENT");
     }
 

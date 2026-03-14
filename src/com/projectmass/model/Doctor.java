@@ -12,21 +12,18 @@ public class Doctor extends User {
     }
 
     // Overloaded constructor to initialize Doctor attributes
-    public Doctor(int id, String firstName, String lastName, String email, String specialization, String licenseID) {
-        this.setUserID(id);
-        this.setFirstName(firstName);
-        this.setLastName(lastName);
-        this.setEmail(email);
-        this.setRole("DOCTOR");
+    public Doctor(int id, String firstName, String lastName, String email, String password, String specialization, String licenseID) {
+        super(id, firstName, lastName, email, password, "DOCTOR");
         this.specialization = specialization;
         this.licenseID = licenseID;
     }
     // updateDoctor to edit current Doctor attributes
-    public void updateDoctor(int id, String firstName, String lastName, String email, String specialization, String licenseID) {
+    public void updateDoctor(int id, String firstName, String lastName, String email, String password, String specialization, String licenseID) {
         this.setUserID(id);
         this.setFirstName(firstName);
         this.setLastName(lastName);
         this.setEmail(email);
+        this.setPassword(password);
         this.setRole("DOCTOR");
         this.specialization = specialization;
         this.licenseID = licenseID;

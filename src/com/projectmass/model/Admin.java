@@ -5,9 +5,8 @@ public class Admin extends User {
 
     // admin constructor to implement admin object
     // super() used to access empty User constructor
-    public Admin() {
-        super();
-        this.setRole("ADMIN");
+    public Admin(int id, String firstName, String lastName, String email, String password) {
+        super(id, firstName, lastName, email, password, "ADMIN");
     }
 
     // Using Polymorphism to create a unique dashboard for Admins
