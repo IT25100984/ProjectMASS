@@ -1,16 +1,19 @@
 package com.projectmass.model;
 
-public abstract class User {
+public class User {
     private int userID;
     private String firstName;
     private String lastName;
     private String email;
-    private String password;
     private String role;
+    private String password;
+    // New Fields
+    private String specialization;
+    private String bloodGroup;
+    private String medicalHistory;
 
     // Empty constructor for Doctor and Patient Objects to access private variables
-    public User() {
-    }
+    public User() {}
 
     // Created constructor for current users
     public User(int userID, String firstname, String lastname, String email, String password, String role) {
@@ -85,6 +88,16 @@ public abstract class User {
         this.role = role;
     }
 
+    public String getBloodGroup() { return bloodGroup; }
+    public void setBloodGroup(String bloodGroup) { this.bloodGroup = bloodGroup; }
 
-    public abstract void displayDashboard();
+    public String getMedicalHistory() { return medicalHistory; }
+    public void setMedicalHistory(String medicalHistory) { this.medicalHistory = medicalHistory; }
+
+    public String getSpecialization() { return specialization; }
+    public void setSpecialization(String specialization) { this.specialization = specialization; }
+
+    public void displayDashboard() {
+        System.out.println("User Class Dashboard");
+    }
 }

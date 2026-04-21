@@ -1,16 +1,26 @@
 package com.projectmass.model;
 
-
 public class Patient extends User {
     private String medicalHistory;
     private String bloodGroup;
 
-    // patient contractor to initialize new patient data
+    public Patient(){
+
+    }
+    // patient constructor to initialize new patient data
     public Patient(int id, String firstName, String lastName, String email, String password, String bloodGroup, String medicalHistory) {
         super(id, firstName, lastName, email, password, "PATIENT");
         this.bloodGroup = bloodGroup;
         this.medicalHistory = medicalHistory;
     }
+    // patient constructor for "Search User" List by Admin
+    public Patient(int id, String firstName, String lastName, String bloodGroup) {
+        this.setUserID(id);
+        this.setFirstName(firstName);
+        this.setLastName(lastName);
+        this.bloodGroup = bloodGroup;
+    }
+
     // updatePatient method to edit current patient data
     public void updatePatient(int id, String firstName, String lastName, String email, String password, String bloodGroup, String medicalHistory) {
         this.bloodGroup = bloodGroup;
