@@ -4,11 +4,29 @@ public class Doctor extends User {
     // Encapsulation of private attributes specific to Doctors
     private String specialization;
     private String licenseID;
-    private double consultationFee;
 
     // Default Constructor for Doctor object
     public Doctor() {
         super(); // this super() calls the empty constructor of the User class
+    }
+
+    // A safe constructor for the "Search Results" list by Patients
+    public Doctor(int id, String firstName, String lastName, String specialization, String  licenseID) {
+        this.setUserID(id);
+        this.setFirstName(firstName);
+        this.setLastName(lastName);
+        this.setSpecialization(specialization);
+        this.setLicenseID(licenseID);
+        // Password and email are left null/empty for security
+    }
+
+    // A safe constructor for the "Search User" list by Admin
+    public Doctor(int id, String firstName, String lastName, String specialization) {
+        this.setUserID(id);
+        this.setFirstName(firstName);
+        this.setLastName(lastName);
+        this.setSpecialization(specialization);
+        // Password and email are left null/empty for security
     }
 
     // Overloaded constructor to initialize Doctor attributes
