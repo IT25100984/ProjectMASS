@@ -1,0 +1,1437 @@
+Index: src/com/projectmass/model/Doctor.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.projectmass.model;\r\n\r\npublic class Doctor extends User {\r\n    // Encapsulation of private attributes specific to Doctors\r\n    private String specialization;\r\n    private String licenseID;\r\n    private double consultationFee;\r\n\r\n    // Default Constructor for Doctor object\r\n    public Doctor() {\r\n        super(); // this super() calls the empty constructor of the User class\r\n    }\r\n\r\n    // Overloaded constructor to initialize Doctor attributes\r\n    public Doctor(int id, String firstName, String lastName, String email, String password, String specialization, String licenseID) {\r\n        super(id, firstName, lastName, email, password, \"DOCTOR\");\r\n        this.specialization = specialization;\r\n        this.licenseID = licenseID;\r\n    }\r\n    // updateDoctor to edit current Doctor attributes\r\n    public void updateDoctor(int id, String firstName, String lastName, String email, String password, String specialization, String licenseID) {\r\n        this.setUserID(id);\r\n        this.setFirstName(firstName);\r\n        this.setLastName(lastName);\r\n        this.setEmail(email);\r\n        this.setPassword(password);\r\n        this.setRole(\"DOCTOR\");\r\n        this.specialization = specialization;\r\n        this.licenseID = licenseID;\r\n    }\r\n\r\n    // Getters and Setters implemented to access private attributes\r\n    public String getSpecialization() { return specialization; }\r\n    public void setSpecialization(String specialization) {\r\n        this.specialization = specialization;\r\n    }\r\n\r\n    public String getLicenseID() {\r\n        return licenseID;\r\n    }\r\n    public void setLicenseID(String licenseID) { this.licenseID = licenseID;}\r\n\r\n    /**\r\n     * Using Polymorphism to Override a method from User Object\r\n     * This way we can create a custom dashboard view for doctors.\r\n     */\r\n    @Override\r\n    public void displayDashboard() {\r\n        System.out.println(\"Displaying Doctor Portal for: \" + getFirstName() + \" \" + getLastName());\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/com/projectmass/model/Doctor.java b/src/com/projectmass/model/Doctor.java
+--- a/src/com/projectmass/model/Doctor.java	(revision ce73ee6e284f6fad7618207e5fe910d186f168e2)
++++ b/src/com/projectmass/model/Doctor.java	(date 1775317782370)
+@@ -4,13 +4,31 @@
+     // Encapsulation of private attributes specific to Doctors
+     private String specialization;
+     private String licenseID;
+-    private double consultationFee;
+ 
+     // Default Constructor for Doctor object
+     public Doctor() {
+         super(); // this super() calls the empty constructor of the User class
+     }
+ 
++    // A safe constructor for the "Search Results" list by Patients
++    public Doctor(int id, String firstName, String lastName, String specialization, String  licenseID) {
++        this.setUserID(id);
++        this.setFirstName(firstName);
++        this.setLastName(lastName);
++        this.setSpecialization(specialization);
++        this.setLicenseID(licenseID);
++        // Password and email are left null/empty for security
++    }
++
++    // A safe constructor for the "Search User" list by Admin
++    public Doctor(int id, String firstName, String lastName, String specialization) {
++        this.setUserID(id);
++        this.setFirstName(firstName);
++        this.setLastName(lastName);
++        this.setSpecialization(specialization);
++        // Password and email are left null/empty for security
++    }
++
+     // Overloaded constructor to initialize Doctor attributes
+     public Doctor(int id, String firstName, String lastName, String email, String password, String specialization, String licenseID) {
+         super(id, firstName, lastName, email, password, "DOCTOR");
+Index: .idea/db-forest-config.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/db-forest-config.xml b/.idea/db-forest-config.xml
+new file mode 100644
+--- /dev/null	(date 1776750918308)
++++ b/.idea/db-forest-config.xml	(date 1776750918308)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="db-tree-configuration">
++    <option name="data" value="----------------------------------------&#10;1:0:71a6e74b-67ad-46b1-9fc1-d2093efc51d8&#10;" />
++  </component>
++</project>
+\ No newline at end of file
+Index: src/com/projectmass/model/Availability.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/com/projectmass/model/Availability.java b/src/com/projectmass/model/Availability.java
+new file mode 100644
+--- /dev/null	(date 1775317782355)
++++ b/src/com/projectmass/model/Availability.java	(date 1775317782355)
+@@ -0,0 +1,73 @@
++package com.projectmass.model;
++
++public class Availability {
++    private int id;
++    private int doctorId;
++    private Integer dayOfWeek; // ✅ Added: 1 (Mon) to 7 (Sun) for weekly rules (can be null)
++    private String date;       // Specific calendar date (can be null for weekly rules)
++    private String startTime;
++    private String endTime;
++
++    // --- Constructors ---
++    public Availability() {
++    }
++
++    public Availability(int id, int doctorId, Integer dayOfWeek, String date, String startTime, String endTime) {
++        this.id = id;
++        this.doctorId = doctorId;
++        this.dayOfWeek = dayOfWeek;
++        this.date = date;
++        this.startTime = startTime;
++        this.endTime = endTime;
++    }
++
++    // --- Getters and Setters ---
++
++    public int getId() {
++        return id;
++    }
++
++    public void setId(int id) {
++        this.id = id;
++    }
++
++    public int getDoctorId() {
++        return doctorId;
++    }
++
++    public void setDoctorId(int doctorId) {
++        this.doctorId = doctorId;
++    }
++
++    public Integer getDayOfWeek() {
++        return dayOfWeek;
++    }
++
++    public void setDayOfWeek(Integer dayOfWeek) {
++        this.dayOfWeek = dayOfWeek;
++    }
++
++    public String getDate() {
++        return date;
++    }
++
++    public void setDate(String date) {
++        this.date = date;
++    }
++
++    public String getStartTime() {
++        return startTime;
++    }
++
++    public void setStartTime(String startTime) {
++        this.startTime = startTime;
++    }
++
++    public String getEndTime() {
++        return endTime;
++    }
++
++    public void setEndTime(String endTime) {
++        this.endTime = endTime;
++    }
++}
+\ No newline at end of file
+Index: .idea/webContexts.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/webContexts.xml b/.idea/webContexts.xml
+new file mode 100644
+--- /dev/null	(date 1775317777448)
++++ b/.idea/webContexts.xml	(date 1775317777448)
+@@ -0,0 +1,11 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="WebContextManager">
++    <option name="state">
++      <map>
++        <entry key="file://$PROJECT_DIR$/src/main/webapp/header.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
++        <entry key="file://$PROJECT_DIR$/src/main/webapp/patient_dashboard.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
++      </map>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/libraries/servlet_api.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/servlet_api.xml b/.idea/libraries/servlet_api.xml
+new file mode 100644
+--- /dev/null	(date 1775317777904)
++++ b/.idea/libraries/servlet_api.xml	(date 1775317777904)
+@@ -0,0 +1,9 @@
++<component name="libraryTable">
++  <library name="servlet-api">
++    <CLASSES>
++      <root url="jar://D:/apache-tomcat-10.1.52/lib/servlet-api.jar!/" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES />
++  </library>
++</component>
+\ No newline at end of file
+Index: web/WEB-INF/web.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/web/WEB-INF/web.xml b/web/WEB-INF/web.xml
+new file mode 100644
+--- /dev/null	(date 1775317783002)
++++ b/web/WEB-INF/web.xml	(date 1775317783002)
+@@ -0,0 +1,110 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
++         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
++         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
++                             https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
++         version="6.0">
++
++    <servlet>
++        <servlet-name>LoginServlet</servlet-name>
++        <servlet-class>com.projectmass.controller.LoginServlet</servlet-class>
++    </servlet>
++    <servlet-mapping>
++        <servlet-name>LoginServlet</servlet-name>
++        <url-pattern>/login</url-pattern>
++    </servlet-mapping>
++
++    <servlet>
++        <servlet-name>UpdateAppointmentServlet</servlet-name>
++        <servlet-class>com.projectmass.controller.UpdateAppointmentServlet</servlet-class>
++    </servlet>
++    <servlet-mapping>
++        <servlet-name>UpdateAppointmentServlet</servlet-name>
++        <url-pattern>/updateAppointment</url-pattern>
++    </servlet-mapping>
++
++    <servlet>
++        <servlet-name>GetAvailableSlotsServlet</servlet-name>
++        <servlet-class>com.projectmass.controller.GetAvailableSlotsServlet</servlet-class>
++    </servlet>
++    <servlet-mapping>
++        <servlet-name>GetAvailableSlotsServlet</servlet-name>
++        <url-pattern>/getAvailableSlots</url-pattern>
++    </servlet-mapping>
++
++    <servlet>
++        <servlet-name>GetDoctorsBySpecServlet</servlet-name>
++        <servlet-class>com.projectmass.controller.GetDoctorsBySpecServlet</servlet-class>
++    </servlet>
++    <servlet-mapping>
++        <servlet-name>GetDoctorsBySpecServlet</servlet-name>
++        <url-pattern>/getDoctorsBySpec</url-pattern>
++    </servlet-mapping>
++
++    <servlet>
++        <servlet-name>PatientDashboardServlet</servlet-name>
++        <servlet-class>com.projectmass.controller.PatientDashboardServlet</servlet-class>
++    </servlet>
++    <servlet-mapping>
++        <servlet-name>PatientDashboardServlet</servlet-name>
++        <url-pattern>/patientDashboard</url-pattern>
++    </servlet-mapping>
++
++    <servlet>
++        <servlet-name>DoctorDashboardServlet</servlet-name>
++        <servlet-class>com.projectmass.controller.DoctorDashboardServlet</servlet-class>
++    </servlet>
++    <servlet-mapping>
++        <servlet-name>DoctorDashboardServlet</servlet-name>
++        <url-pattern>/doctorDashboard</url-pattern>
++    </servlet-mapping>
++
++    <servlet>
++        <servlet-name>UpdateAvailabilityServlet</servlet-name>
++        <servlet-class>com.projectmass.controller.UpdateAvailabilityServlet</servlet-class>
++    </servlet>
++    <servlet-mapping>
++        <servlet-name>UpdateAvailabilityServlet</servlet-name>
++        <url-pattern>/updateAvailability</url-pattern>
++    </servlet-mapping>
++
++    <servlet>
++        <servlet-name>LogoutServlet</servlet-name>
++        <servlet-class>com.projectmass.controller.LogoutServlet</servlet-class>
++    </servlet>
++    <servlet-mapping>
++        <servlet-name>LogoutServlet</servlet-name>
++        <url-pattern>/logout</url-pattern>
++    </servlet-mapping>
++
++    <servlet>
++        <servlet-name>RegisterServlet</servlet-name>
++        <servlet-class>com.projectmass.controller.RegisterServlet</servlet-class>
++    </servlet>
++    <servlet-mapping>
++        <servlet-name>RegisterServlet</servlet-name>
++        <url-pattern>/register</url-pattern>
++    </servlet-mapping>
++
++    <servlet>
++        <servlet-name>AppointmentServlet</servlet-name>
++        <servlet-class>com.projectmass.controller.AppointmentServlet</servlet-class>
++    </servlet>
++    <servlet-mapping>
++        <servlet-name>AppointmentServlet</servlet-name>
++        <url-pattern>/bookAppointment</url-pattern>
++    </servlet-mapping>
++
++    <servlet>
++        <servlet-name>UpdateProfileServlet</servlet-name>
++        <servlet-class>com.projectmass.controller.UpdateProfileServlet</servlet-class>
++    </servlet>
++    <servlet-mapping>
++        <servlet-name>UpdateProfileServlet</servlet-name>
++        <url-pattern>/updateProfile</url-pattern>
++    </servlet-mapping>
++
++    <welcome-file-list>
++        <welcome-file>login.jsp</welcome-file>
++    </welcome-file-list>
++</web-app>
+\ No newline at end of file
+Index: ProjectMASS.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<module type=\"JAVA_MODULE\" version=\"4\">\r\n  <component name=\"NewModuleRootManager\" inherit-compiler-output=\"true\">\r\n    <exclude-output />\r\n    <content url=\"file://$MODULE_DIR$\">\r\n      <sourceFolder url=\"file://$MODULE_DIR$/src\" isTestSource=\"false\" />\r\n    </content>\r\n    <orderEntry type=\"inheritedJdk\" />\r\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\r\n    <orderEntry type=\"library\" name=\"mysql-connector-j-9.6.0\" level=\"project\" />\r\n  </component>\r\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ProjectMASS.iml b/ProjectMASS.iml
+--- a/ProjectMASS.iml	(revision ce73ee6e284f6fad7618207e5fe910d186f168e2)
++++ b/ProjectMASS.iml	(date 1775318686959)
+@@ -1,5 +1,17 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <module type="JAVA_MODULE" version="4">
++  <component name="FacetManager">
++    <facet type="web" name="Web">
++      <configuration>
++        <descriptors>
++          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/web/WEB-INF/web.xml" />
++        </descriptors>
++        <webroots>
++          <root url="file://$MODULE_DIR$/web" relative="/" />
++        </webroots>
++      </configuration>
++    </facet>
++  </component>
+   <component name="NewModuleRootManager" inherit-compiler-output="true">
+     <exclude-output />
+     <content url="file://$MODULE_DIR$">
+@@ -8,5 +20,34 @@
+     <orderEntry type="inheritedJdk" />
+     <orderEntry type="sourceFolder" forTests="false" />
+     <orderEntry type="library" name="mysql-connector-j-9.6.0" level="project" />
++    <orderEntry type="library" name="servlet-api" level="project" />
++    <orderEntry type="module-library">
++      <library>
++        <CLASSES>
++          <root url="jar://$MODULE_DIR$/src/main/webapp/WEB-INF/lib/jakarta.servlet.jsp.jstl-3.0.1.jar!/" />
++        </CLASSES>
++        <JAVADOC />
++        <SOURCES />
++      </library>
++    </orderEntry>
++    <orderEntry type="library" name="bootstrap" level="application" />
++    <orderEntry type="module-library">
++      <library>
++        <CLASSES>
++          <root url="jar://$MODULE_DIR$/src/main/webapp/WEB-INF/lib/jakarta.servlet.jsp.jstl-api-3.0.2.jar!/" />
++        </CLASSES>
++        <JAVADOC />
++        <SOURCES />
++      </library>
++    </orderEntry>
++    <orderEntry type="module-library">
++      <library>
++        <CLASSES>
++          <root url="jar://$MODULE_DIR$/src/main/webapp/WEB-INF/lib/gson-2.10.1.jar!/" />
++        </CLASSES>
++        <JAVADOC />
++        <SOURCES />
++      </library>
++    </orderEntry>
+   </component>
+ </module>
+\ No newline at end of file
+Index: src/tomCatStartUp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/tomCatStartUp b/src/tomCatStartUp
+new file mode 100644
+--- /dev/null	(date 1776741679923)
++++ b/src/tomCatStartUp	(date 1776741679923)
+@@ -0,0 +1,5 @@
++$env:JAVA_HOME = "C:\Users\S_L_A_W\.jdks\temurin-20.0.2"
++
++.\startup.bat
++
++.\shutdown.bat
+\ No newline at end of file
+Index: src/main/webapp/book_appointment.jsp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/webapp/book_appointment.jsp b/src/main/webapp/book_appointment.jsp
+new file mode 100644
+--- /dev/null	(date 1775317782527)
++++ b/src/main/webapp/book_appointment.jsp	(date 1775317782527)
+@@ -0,0 +1,217 @@
++<%@ page contentType="text/html;charset=UTF-8" language="java" %>
++<%@ taglib uri="jakarta.tags.core" prefix="c" %>
++<%@ page import="com.projectmass.dao.UserDAO, com.projectmass.model.User, java.util.List" %>
++
++<%
++    UserDAO userDao = new UserDAO();
++    List<User> doctorList = userDao.getAllDoctors();
++    request.setAttribute("doctorList", doctorList);
++%>
++<!DOCTYPE html>
++<html lang="en">
++<head>
++    <meta charset="UTF-8">
++    <meta name="viewport" content="width=device-width, initial-scale=1.0">
++    <title>Book Appointment | ProjectMASS</title>
++    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
++    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
++</head>
++<body class="bg-light">
++
++<%@ include file="header.jsp" %>
++
++<div class="container mt-5">
++    <div class="card shadow border-0 mx-auto" style="max-width: 500px;">
++        <div class="card-header bg-primary text-white py-3">
++            <h4 class="mb-0 fw-bold"><i class="bi bi-calendar-check me-2"></i>Schedule Appointment</h4>
++        </div>
++        <div class="card-body p-4">
++
++            <c:if test="${not empty param.errorMsg}">
++                <div class="alert alert-danger shadow-sm border-0">
++                    <i class="bi bi-exclamation-octagon-fill me-1"></i> ${param.errorMsg}
++                </div>
++            </c:if>
++
++            <form action="bookAppointment" method="POST">
++                <div class="mb-3">
++                    <label for="specializationSelect" class="form-label fw-semibold">Select Specialization</label>
++                    <select id="specializationSelect" class="form-select" onchange="updateDoctorList()">
++                        <option value="" selected disabled>Select Specialization</option>
++                        <%-- Change value to "All Specializations" to match your JS check --%>
++                        <option value="All Specializations">All Specializations</option>
++                        <option value="General Practitioner">General Practitioner</option>
++                        <option value="Dermatology">Dermatology</option>
++                        <option value="Cardiology">Cardiology</option>
++                    </select>
++                </div>
++
++                <div class="mb-3">
++                    <label for="doctorSelect" class="form-label fw-semibold">Select Doctor</label>
++                    <select name="doctorId" id="doctorSelect" class="form-select" onchange="fetchSlots()" required>
++                        <option value="" selected disabled>Choose a doctor...</option>
++                        <c:forEach var="doc" items="${doctorList}">
++                            <option value="${doc.userID}">Dr. ${doc.firstName} ${doc.lastName}</option>
++                        </c:forEach>
++                    </select>
++                </div>
++
++                <div class="mb-3">
++                    <label for="datePicker" class="form-label fw-semibold">Select Date</label>
++                    <input type="date" name="date" id="datePicker" class="form-control" onchange="fetchSlots()" required>
++                </div>
++
++                <div class="mb-4">
++                    <%-- Fixed: Added 'for' attribute linked to ID --%>
++                    <label for="timeSlotSelect" class="form-label fw-semibold">Available Time Slots</label>
++                    <select name="time" id="timeSlotSelect" class="form-select" required>
++                        <option value="" selected disabled>Choose a date & doctor first...</option>
++                    </select>
++                    <div id="slotSpinner" class="form-text text-muted d-none">
++                        <div class="spinner-border spinner-border-sm text-primary me-1" role="status"></div>
++                        Checking doctor schedule...
++                    </div>
++                </div>
++
++                <div class="d-grid gap-2">
++                    <button type="submit" class="btn btn-primary py-2 shadow-sm">Confirm Booking</button>
++                    <a href="patientDashboard" class="btn btn-outline-secondary">Back to Dashboard</a>
++                </div>
++            </form>
++        </div>
++    </div>
++</div>
++
++<script>
++    document.addEventListener("DOMContentLoaded", function() {
++        // Automatically set the date picker to Today's date
++        const today = new Date().toISOString().split('T')[0];
++        const dateInput = document.getElementById('datePicker');
++        if (dateInput) {
++            dateInput.setAttribute('min', today);
++            dateInput.value = today;
++        }
++    });
++
++    function filterDoctors() {
++        const selectedSpec = document.getElementById("specialization").value;
++        const doctorSelect = document.getElementById("doctorSelect");
++        const options = doctorSelect.querySelectorAll("option");
++
++        // Reset doctor selection when specialization changes
++        doctorSelect.selectedIndex = 0;
++        document.getElementById("timeSlotSelect").innerHTML = '<option value="" selected disabled>Choose a date & doctor first...</option>';
++
++        options.forEach(opt => {
++            if (opt.value === "") return;
++            const doctorSpec = opt.getAttribute("data-spec");
++            if (selectedSpec === "All" || doctorSpec === selectedSpec) {
++                opt.hidden = false;
++                opt.disabled = false;
++            } else {
++                opt.hidden = true;
++                opt.disabled = true;
++            }
++        });
++    }
++
++   function updateDoctorList() {
++       const specSelect = document.getElementById("specializationSelect");
++       const doctorSelect = document.getElementById("doctorSelect");
++
++       if (!specSelect || !doctorSelect) return;
++       let spec = specSelect.value;
++
++       // 🛑 REMOVE the return here. Instead, normalize the value:
++       if (spec === "Select Specialization" || spec === "All Specializations") {
++           spec = ""; // Sending an empty string tells the Servlet to fetch ALL
++       }
++
++       const url = "getDoctorsBySpec?specialization=" + encodeURIComponent(spec);
++
++       fetch(url)
++           .then(response => response.json())
++           .then(doctors => {
++               doctorSelect.innerHTML = '<option value="" selected disabled>Choose a doctor...</option>';
++
++               if (doctors.length === 0) {
++                   doctorSelect.innerHTML = '<option disabled>No doctors available</option>';
++                   return;
++               }
++
++               doctors.forEach(doc => {
++                   const option = document.createElement("option");
++                   // Ensure doc.userID matches your DoctorDTO field name exactly
++                   option.value = doc.userID;
++                   option.textContent = "Dr. " + (doc.firstName || "Unknown") + " " + (doc.lastName || "");
++                   doctorSelect.appendChild(option);
++               });
++           })
++           .catch(err => {
++               console.error("Error:", err);
++               doctorSelect.innerHTML = '<option disabled>Error loading doctors</option>';
++           });
++   }
++
++   function fetchSlots() {
++       const doctorSelect = document.getElementById("doctorSelect");
++       const dateInput = document.getElementById("datePicker");
++       const timeSelect = document.getElementById("timeSlotSelect");
++
++       // Get current values
++       const doctorId = doctorSelect ? doctorSelect.value : "";
++       const rawDate = dateInput ? dateInput.value : "";
++
++       // Prepare the URL
++       const sanitizedDate = rawDate.replace(/\//g, "-");
++
++       const params = new URLSearchParams();
++       params.append("doctorId", doctorId);
++       params.append("date", sanitizedDate);
++
++       // 🛑 DEBUGGING: Confirm these show in your F12 console
++       console.log("Doctor ID detected:", doctorId);
++       console.log("Original Date from UI:", rawDate);
++
++       // 🛑 SAFETY GUARD: Prevent the call if data is missing
++       if (!doctorId || !rawDate) {
++           console.warn("Fetch blocked: Doctor or Date is missing.");
++           return;
++       }
++
++       const queryString = params.toString();
++       const finalUrl = "getAvailableSlots?" + queryString;
++
++       // 🛑 DEBUGGING: This MUST show the full string now
++       console.log("Query String generated:", queryString);
++       console.log("Final URL being called:", finalUrl);
++
++       timeSelect.innerHTML = '<option value="" selected disabled>Loading hours...</option>';
++
++       fetch(finalUrl)
++           .then(response => {
++               if (!response.ok) throw new Error("Server Error: " + response.status);
++               return response.json();
++           })
++           .then(slots => {
++               timeSelect.innerHTML = '';
++               if (!slots || slots.length === 0) {
++                   timeSelect.innerHTML = '<option value="" disabled>No available hours found.</option>';
++               } else {
++                   timeSelect.innerHTML = '<option value="" selected disabled>Choose a time...</option>';
++                   slots.forEach(slot => {
++                       const option = document.createElement("option");
++                       option.value = slot;
++                       option.text = slot;
++                       timeSelect.appendChild(option);
++                   });
++               }
++           })
++           .catch(err => {
++               console.error("AJAX Error:", err);
++               timeSelect.innerHTML = '<option value="" disabled>Error loading slots.</option>';
++           });
++   }
++</script>
++</body>
++</html>
+\ No newline at end of file
+Index: src/main/webapp/register.jsp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/webapp/register.jsp b/src/main/webapp/register.jsp
+new file mode 100644
+--- /dev/null	(date 1775317782730)
++++ b/src/main/webapp/register.jsp	(date 1775317782730)
+@@ -0,0 +1,55 @@
++<%@ page contentType="text/html;charset=UTF-8" language="java" %>
++<html>
++<head>
++    <title>Register | ProjectMASS</title>
++    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
++</head>
++<body class="bg-light">
++
++<%@ include file="header.jsp" %>
++
++<div class="container mt-5">
++    <div class="row justify-content-center">
++        <div class="col-md-6 col-lg-4">
++            <div class="card shadow">
++                <div class="card-header bg-primary text-white text-center">
++                    <h4>Create Account</h4>
++                </div>
++                <div class="card-body">
++                    <form action="register" method="POST">
++                        <div class="mb-3">
++                            <label class="form-label">First Name</label>
++                            <input type="text" name="firstName" class="form-control" placeholder="Enter first name" required>
++                        </div>
++                        <div class="mb-3">
++                            <label class="form-label">Last Name</label>
++                            <input type="text" name="lastName" class="form-control" placeholder="Enter last name" required>
++                        </div>
++                        <div class="mb-3">
++                            <label class="form-label">Email Address</label>
++                            <input type="email" name="email" class="form-control" placeholder="name@example.com" required>
++                        </div>
++                        <div class="mb-3">
++                            <label class="form-label">Password</label>
++                            <input type="password" name="password" class="form-control" placeholder="Create a password" required>
++                        </div>
++                        <div class="mb-3">
++                            <label class="form-label">I am a...</label>
++                            <select name="role" class="form-select">
++                                <option value="PATIENT">Patient</option>
++                                <option value="DOCTOR">Doctor</option>
++                            </select>
++                        </div>
++                        <button type="submit" class="btn btn-primary w-100">Create Account</button>
++                    </form>
++                </div>
++                <div class="card-footer text-center">
++                    <small>Already have an account? <a href="login.jsp">Login here</a></small>
++                </div>
++            </div>
++        </div>
++    </div>
++</div>
++
++</body>
++</html>
+\ No newline at end of file
+Index: src/com/projectmass/controller/GetDoctorsBySpecServlet.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/com/projectmass/controller/GetDoctorsBySpecServlet.java b/src/com/projectmass/controller/GetDoctorsBySpecServlet.java
+new file mode 100644
+--- /dev/null	(date 1775317781917)
++++ b/src/com/projectmass/controller/GetDoctorsBySpecServlet.java	(date 1775317781917)
+@@ -0,0 +1,42 @@
++package com.projectmass.controller;
++
++import com.google.gson.Gson;
++import com.projectmass.dao.UserDAO;
++import com.projectmass.model.User;
++import jakarta.servlet.ServletException;
++import jakarta.servlet.http.HttpServlet;
++import jakarta.servlet.http.HttpServletRequest;
++import jakarta.servlet.http.HttpServletResponse;
++
++import java.io.IOException;
++import java.io.PrintWriter;
++import java.util.List;
++
++//@WebServlet("/getDoctorsBySpec")
++public class GetDoctorsBySpecServlet extends HttpServlet {
++    private UserDAO userDAO = new UserDAO(); // Ensure this is initialized
++
++    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
++        String spec = request.getParameter("specialization");
++
++        // 1. Fetch filtered list from DB
++        List<User> doctors;
++
++        if (spec == null || spec.trim().isEmpty()) {
++            // Fetch all doctors from the database
++            doctors = userDAO.getAllDoctors();
++        } else {
++            // Fetch only doctors matching the specialization
++            doctors = userDAO.getDoctorsBySpecialization(spec);
++        }
++
++        // 2. Setup Response
++        response.setContentType("application/json");
++        response.setCharacterEncoding("UTF-8");
++
++        // 3. Convert to JSON and send
++        PrintWriter out = response.getWriter();
++        out.print(new Gson().toJson(doctors));
++        out.flush();
++    }
++}
+Index: src/main/webapp/index.jsp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/webapp/index.jsp b/src/main/webapp/index.jsp
+new file mode 100644
+--- /dev/null	(date 1775317782636)
++++ b/src/main/webapp/index.jsp	(date 1775317782636)
+@@ -0,0 +1,15 @@
++<%@ page contentType="text/html;charset=UTF-8" language="java" %>
++<html>
++<head>
++    <title>Home | ProjectMASS</title>
++    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
++</head>
++<body>
++<%@ include file="header.jsp" %>
++
++<div class="container text-center mt-5">
++    <h1>Welcome to ProjectMASS. <br><i>Your gateway to better health.</i></h1>
++    <p>The system is ready for its first appointment.</p>
++</div>
++</body>
++</html>
+\ No newline at end of file
+Index: src/main/webapp/header.jsp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/webapp/header.jsp b/src/main/webapp/header.jsp
+new file mode 100644
+--- /dev/null	(date 1775317782620)
++++ b/src/main/webapp/header.jsp	(date 1775317782620)
+@@ -0,0 +1,26 @@
++<%-- 1. This line is required for JSTL to work --%>
++<%@ taglib uri="jakarta.tags.core" prefix="c" %>
++
++<nav class="navbar navbar-dark bg-primary shadow-sm px-4 mb-4">
++    <div class="container-fluid">
++        <a class="navbar-brand fw-bold" href="index.jsp">ProjectMASS</a>
++
++        <div class="d-flex align-items-center">
++            <c:choose>
++                <%-- 2. Check if user is logged in --%>
++                <c:when test="${not empty sessionScope.user}">
++                    <span class="navbar-text text-white me-3">
++                        Welcome, <strong>${user.firstName}</strong>
++                        <span class="badge bg-light text-primary ms-1">${user.role}</span>
++                    </span>
++                    <a href="logout" class="btn btn-sm btn-light text-primary fw-bold">Logout</a>
++                </c:when>
++
++                <%-- 3. If not logged in, show login button --%>
++                <c:otherwise>
++                    <a href="login.jsp" class="btn btn-sm btn-outline-light">Login</a>
++                </c:otherwise>
++            </c:choose>
++        </div>
++    </div>
++</nav>
+\ No newline at end of file
+Index: src/main/webapp/login.jsp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/webapp/login.jsp b/src/main/webapp/login.jsp
+new file mode 100644
+--- /dev/null	(date 1775317782667)
++++ b/src/main/webapp/login.jsp	(date 1775317782667)
+@@ -0,0 +1,56 @@
++<%@ page contentType="text/html;charset=UTF-8" language="java" %>
++<html>
++<head>
++    <title>Login | ProjectMASS</title>
++    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
++</head>
++<body class="bg-light">
++<%@ include file="header.jsp" %>
++
++<div class="container mt-5">
++    <div class="row justify-content-center">
++        <div class="col-md-4">
++            <% if ("loggedout".equals(request.getParameter("msg"))) { %>
++            <div class="alert alert-info shadow-sm text-center mb-4">
++                You have been successfully logged out.
++            </div>
++            <% } %>
++
++            <% if ("registered".equals(request.getParameter("status"))) { %>
++            <div class="alert alert-success">
++                Account created! Please log in.
++            </div>
++            <% } %>
++
++            <% if ("failed".equals(request.getParameter("error"))) { %>
++            <div class="alert alert-danger shadow-sm text-center mb-4">
++                Invalid Email or Password.
++            </div>
++            <% } %>
++
++            <div class="card shadow">
++                <div class="card-header bg-primary text-white text-center">
++                    <h4>Hospital Portal Login</h4>
++                </div>
++                <div class="card-body">
++                    <form action="login" method="POST">
++                        <div class="mb-3">
++                            <label class="form-label">Email</label>
++                            <input type="text" name="username" class="form-control" required>
++                        </div>
++                        <div class="mb-3">
++                            <label class="form-label">Password</label>
++                            <input type="password" name="password" class="form-control" required>
++                        </div>
++                        <button type="submit" class="btn btn-primary w-100">Login</button>
++                    </form>
++                </div>
++                <div class="card-footer text-center">
++                    <small>Don't have an account? <a href="register.jsp">Register here</a></small>
++                </div>
++            </div>
++        </div>
++    </div>
++</div>
++</body>
++</html>
+\ No newline at end of file
+Index: src/com/projectmass/controller/AuthFilter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/com/projectmass/controller/AuthFilter.java b/src/com/projectmass/controller/AuthFilter.java
+new file mode 100644
+--- /dev/null	(date 1775317781839)
++++ b/src/com/projectmass/controller/AuthFilter.java	(date 1775317781839)
+@@ -0,0 +1,37 @@
++package com.projectmass.controller;
++
++import jakarta.servlet.*;
++import jakarta.servlet.annotation.WebFilter;
++import jakarta.servlet.http.HttpServletRequest;
++import jakarta.servlet.http.HttpServletResponse;
++import jakarta.servlet.http.HttpSession;
++
++import java.io.IOException;
++
++
++//@WebFilter("/*") // This tells the "Bouncer" to check EVERY page
++public class AuthFilter implements Filter {
++    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
++            throws IOException, ServletException {
++
++        HttpServletRequest req = (HttpServletRequest) request;
++        HttpServletResponse res = (HttpServletResponse) response;
++        HttpSession session = req.getSession(false);
++
++        String loginURI = req.getContextPath() + "/login.jsp";
++        String loginServletURI = req.getContextPath() + "/login";
++
++        // Check if the user is logged in
++        boolean loggedIn = (session != null && session.getAttribute("user") != null);
++        // Check if they are just trying to get TO the login page
++        boolean loginRequest = req.getRequestURI().equals(loginURI) || req.getRequestURI().equals(loginServletURI);
++
++        if (loggedIn || loginRequest) {
++            // If they are logged in, or just trying to log in, let them pass
++            chain.doFilter(request, response);
++        } else {
++            // Otherwise, kick them back to the login page!
++            res.sendRedirect(loginURI);
++        }
++    }
++}
+Index: src/main/webapp/find_doctors.jsp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/webapp/find_doctors.jsp b/src/main/webapp/find_doctors.jsp
+new file mode 100644
+--- /dev/null	(date 1775317782589)
++++ b/src/main/webapp/find_doctors.jsp	(date 1775317782589)
+@@ -0,0 +1,3 @@
++<a href="book_appointment.jsp?doctorId=2&doctorName=John%20Will" class="btn btn-sm btn-outline-primary">
++    Book with Dr. John Will
++</a>
+\ No newline at end of file
+Index: src/com/projectmass/controller/GetAvailableSlotsServlet.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/com/projectmass/controller/GetAvailableSlotsServlet.java b/src/com/projectmass/controller/GetAvailableSlotsServlet.java
+new file mode 100644
+--- /dev/null	(date 1775317781886)
++++ b/src/com/projectmass/controller/GetAvailableSlotsServlet.java	(date 1775317781886)
+@@ -0,0 +1,53 @@
++package com.projectmass.controller;
++
++import com.google.gson.Gson;
++import com.projectmass.dao.AppointmentDAO;
++import jakarta.servlet.ServletException;
++import jakarta.servlet.annotation.WebServlet;
++import jakarta.servlet.http.HttpServlet;
++import jakarta.servlet.http.HttpServletRequest;
++import jakarta.servlet.http.HttpServletResponse;
++
++import java.io.IOException;
++import java.io.PrintWriter;
++import java.util.ArrayList;
++import java.util.List;
++
++//@WebServlet("/getAvailableSlots") // ✅ Uncommented to match your JS fetch URL
++public class GetAvailableSlotsServlet extends HttpServlet {
++
++    private final AppointmentDAO apptDAO = new AppointmentDAO();
++
++    @Override
++    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
++        // 1. Get Parameters
++        String doctorIdStr = request.getParameter("doctorId");
++        String dateStr = request.getParameter("date");
++
++        // 2. Setup Response Headers
++        response.setContentType("application/json");
++        response.setCharacterEncoding("UTF-8");
++
++        List<String> availableSlots = new ArrayList<>();
++
++        // 3. Logic with Safety Check
++        // Added check for .isEmpty() to prevent NumberFormatException for input string: ""
++        if (doctorIdStr != null && !doctorIdStr.isEmpty() && dateStr != null && !dateStr.isEmpty()) {
++            try {
++                int doctorId = Integer.parseInt(doctorIdStr);
++
++                // Assuming your DAO method is implemented to accept (int, String)
++                availableSlots = apptDAO.getAvailableSlots(doctorId, dateStr);
++
++            } catch (NumberFormatException e) {
++                // Log error but return empty list instead of crashing with 500 error
++                System.err.println("Invalid Doctor ID format: " + doctorIdStr);
++            }
++        }
++
++        // 4. Send JSON Response
++        PrintWriter out = response.getWriter();
++        out.print(new Gson().toJson(availableSlots));
++        out.flush();
++    }
++}
+\ No newline at end of file
+Index: src/com/projectmass/controller/LoginServlet.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/com/projectmass/controller/LoginServlet.java b/src/com/projectmass/controller/LoginServlet.java
+new file mode 100644
+--- /dev/null	(date 1775317781948)
++++ b/src/com/projectmass/controller/LoginServlet.java	(date 1775317781948)
+@@ -0,0 +1,44 @@
++package com.projectmass.controller;
++
++import com.projectmass.dao.UserDAO;
++import com.projectmass.model.User;
++import jakarta.servlet.ServletException;
++import jakarta.servlet.annotation.WebServlet;
++import jakarta.servlet.http.HttpServlet;
++import jakarta.servlet.http.HttpServletRequest;
++import jakarta.servlet.http.HttpServletResponse;
++import jakarta.servlet.http.HttpSession;
++
++import java.io.IOException;
++
++//@WebServlet("/login")
++public class LoginServlet extends HttpServlet {
++    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
++        // 1. Get the data from login.jsp
++        String email = request.getParameter("username"); // Matches 'name="username"' in your JSP
++        String pass = request.getParameter("password");
++
++        // DEBUG: Print this to see if the Servlet is even triggered
++        System.out.println("LoginServlet: Received request for " + email);
++
++        // 2. THIS IS THE MISSING LINK: Call the DAO
++        UserDAO dao = new UserDAO();
++        User user = dao.login(email, pass);
++
++        if (user != null) {
++            // SUCCESS: Store user in session and redirect to dashboard
++            HttpSession session = request.getSession();
++            session.setAttribute("user", user);
++
++            // Logic to send to correct dashboard based on role
++            if ("DOCTOR".equalsIgnoreCase(user.getRole())) {
++                response.sendRedirect("doctorDashboard");
++            } else {
++                response.sendRedirect("patientDashboard");
++            }
++        } else {
++            // FAILURE: Send back to log in with error
++            response.sendRedirect("login.jsp?error=failed");
++        }
++    }
++}
+\ No newline at end of file
+Index: src/com/projectmass/controller/UpdateAvailabilityServlet.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/com/projectmass/controller/UpdateAvailabilityServlet.java b/src/com/projectmass/controller/UpdateAvailabilityServlet.java
+new file mode 100644
+--- /dev/null	(date 1775317782105)
++++ b/src/com/projectmass/controller/UpdateAvailabilityServlet.java	(date 1775317782105)
+@@ -0,0 +1,65 @@
++package com.projectmass.controller;
++
++import com.projectmass.dao.AppointmentDAO;
++import com.projectmass.model.User;
++import jakarta.servlet.ServletException;
++import jakarta.servlet.annotation.WebServlet;
++import jakarta.servlet.http.HttpServlet;
++import jakarta.servlet.http.HttpServletRequest;
++import jakarta.servlet.http.HttpServletResponse;
++import jakarta.servlet.http.HttpSession;
++
++import java.io.IOException;
++
++//@WebServlet("/updateAvailability") // ✅ FIX 1: Uncommented for URL routing
++public class UpdateAvailabilityServlet extends HttpServlet {
++
++    @Override
++    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
++        HttpSession session = request.getSession(false);
++        User user = (session != null) ? (User) session.getAttribute("user") : null;
++
++        if (user == null || !"DOCTOR".equals(user.getRole())) {
++            response.sendRedirect("login.jsp");
++            return;
++        }
++
++        AppointmentDAO dao = new AppointmentDAO();
++
++        String scheduleType = request.getParameter("scheduleType");
++        String startTime = request.getParameter("startTime");
++        String endTime = request.getParameter("endTime");
++        int doctorId = user.getUserID();
++
++        boolean anySuccess = false; // ✅ FIX 2: Better boolean tracking
++
++        System.out.println("--- UpdateAvailabilityServlet (POST): Doctor ID=" + doctorId + " Type=" + scheduleType + " ---");
++
++        if ("weekly".equalsIgnoreCase(scheduleType)) {
++            String[] selectedDays = request.getParameterValues("days");
++
++            if (selectedDays != null && selectedDays.length > 0) {
++                for (String dayStr : selectedDays) {
++                    try {
++                        int dayOfWeek = Integer.parseInt(dayStr);
++                        boolean ok = dao.setDoctorAvailability(doctorId, null, dayOfWeek, startTime, endTime);
++                        if (ok) {
++                            anySuccess = true; // If at least ONE day works, we mark it success
++                        }
++                    } catch (NumberFormatException e) {
++                        e.printStackTrace();
++                    }
++                }
++            }
++        } else if ("single".equalsIgnoreCase(scheduleType)) {
++            String availDate = request.getParameter("availDate");
++
++            if (availDate != null && !availDate.isEmpty()) {
++                anySuccess = dao.setDoctorAvailability(doctorId, availDate, 0, startTime, endTime);
++            }
++        }
++
++        // Redirect back to dashboard with the outcome
++        response.sendRedirect("doctorDashboard?availUpdated=" + anySuccess);
++    }
++}
+\ No newline at end of file
+Index: src/com/projectmass/controller/LogoutServlet.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/com/projectmass/controller/LogoutServlet.java b/src/com/projectmass/controller/LogoutServlet.java
+new file mode 100644
+--- /dev/null	(date 1775317781979)
++++ b/src/com/projectmass/controller/LogoutServlet.java	(date 1775317781979)
+@@ -0,0 +1,29 @@
++package com.projectmass.controller;
++
++import jakarta.servlet.ServletException;
++import jakarta.servlet.annotation.WebServlet;
++import jakarta.servlet.http.HttpServlet;
++import jakarta.servlet.http.HttpServletRequest;
++import jakarta.servlet.http.HttpServletResponse;
++import jakarta.servlet.http.HttpSession;
++import java.io.IOException;
++
++public class LogoutServlet extends HttpServlet {
++
++    @Override
++    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
++        HttpSession session = request.getSession(false); // Fetch session if it exists
++
++        if (session != null) {
++            session.invalidate(); // Clear all user data from memory
++        }
++
++        // Redirect back to log in.jsp
++        response.sendRedirect("login.jsp");
++    }
++
++    @Override
++    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
++        doGet(request, response); // If it receives a POST, run GET instead!
++    }
++}
+\ No newline at end of file
+Index: .idea/sqldialects.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/sqldialects.xml b/.idea/sqldialects.xml
+new file mode 100644
+--- /dev/null	(date 1775317777391)
++++ b/.idea/sqldialects.xml	(date 1775317777391)
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="SqlDialectMappings">
++    <file url="file://$PROJECT_DIR$/src/com/projectmass/dao/UserDAO.java" dialect="GenericSQL" />
++    <file url="PROJECT" dialect="MySQL" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/dataSources.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/dataSources.xml b/.idea/dataSources.xml
+new file mode 100644
+--- /dev/null	(date 1775318687019)
++++ b/.idea/dataSources.xml	(date 1775318687019)
+@@ -0,0 +1,17 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
++    <data-source source="LOCAL" name="localhost" uuid="71a6e74b-67ad-46b1-9fc1-d2093efc51d8">
++      <driver-ref>mysql.8</driver-ref>
++      <synchronize>true</synchronize>
++      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
++      <jdbc-url>jdbc:mysql://localhost:3306/projectmass</jdbc-url>
++      <jdbc-additional-properties>
++        <property name="com.intellij.clouds.kubernetes.db.host.port" />
++        <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
++        <property name="com.intellij.clouds.kubernetes.db.container.port" />
++      </jdbc-additional-properties>
++      <working-dir>$ProjectFileDir$</working-dir>
++    </data-source>
++  </component>
++</project>
+\ No newline at end of file
+Index: src/com/projectmass/controller/UpdateProfileServlet.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/com/projectmass/controller/UpdateProfileServlet.java b/src/com/projectmass/controller/UpdateProfileServlet.java
+new file mode 100644
+--- /dev/null	(date 1775317782136)
++++ b/src/com/projectmass/controller/UpdateProfileServlet.java	(date 1775317782136)
+@@ -0,0 +1,62 @@
++package com.projectmass.controller;
++
++import com.projectmass.dao.UserDAO;
++import com.projectmass.model.User;
++import jakarta.servlet.ServletException;
++import jakarta.servlet.annotation.WebServlet;
++import jakarta.servlet.http.HttpServlet;
++import jakarta.servlet.http.HttpServletRequest;
++import jakarta.servlet.http.HttpServletResponse;
++import jakarta.servlet.http.HttpSession;
++
++import java.io.IOException;
++
++//@WebServlet("/updateProfile") // ✅ Step 1: Uncommented so Tomcat can route requests here!
++public class UpdateProfileServlet extends HttpServlet {
++
++    @Override
++    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
++        HttpSession session = request.getSession();
++        User user = (User) session.getAttribute("user");
++
++        if (user == null) {
++            response.sendRedirect("login.jsp");
++            return;
++        }
++
++        String bloodGroup = request.getParameter("bloodGroup");
++        String medicalHistory = request.getParameter("medicalHistory");
++        String specialization = request.getParameter("specialization"); // For Doctors
++
++        UserDAO userDao = new UserDAO();
++        boolean success = false;
++        String redirectPage = "PATIENT".equals(user.getRole()) ? "patientDashboard" : "doctorDashboard";
++
++        // 🩸 1. If it's a Patient updating Blood Group & History
++        if ("PATIENT".equals(user.getRole())) {
++            success = userDao.updateProfile(user.getUserID(), bloodGroup, medicalHistory);
++
++            if (success) {
++                user.setBloodGroup(bloodGroup);
++                user.setMedicalHistory(medicalHistory);
++                session.setAttribute("user", user); // Refresh Session Context
++            }
++        }
++        // 🩺 2. If it's a Doctor updating Specialization
++        else if ("DOCTOR".equals(user.getRole())) {
++            success = userDao.updateProfile(user.getUserID(), specialization);
++
++            if (success) {
++                user.setSpecialization(specialization);
++                session.setAttribute("user", user); // Refresh Session Context
++            }
++        }
++
++        // ✅ Step 2: Unified redirection!
++        if (success) {
++            response.sendRedirect(redirectPage + "?updated=true");
++        } else {
++            response.sendRedirect(redirectPage + "?error=true");
++        }
++    }
++}
+\ No newline at end of file
+Index: src/com/projectmass/controller/RegisterServlet.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/com/projectmass/controller/RegisterServlet.java b/src/com/projectmass/controller/RegisterServlet.java
+new file mode 100644
+--- /dev/null	(date 1775317782042)
++++ b/src/com/projectmass/controller/RegisterServlet.java	(date 1775317782042)
+@@ -0,0 +1,42 @@
++package com.projectmass.controller;
++
++import com.projectmass.dao.UserDAO;
++import com.projectmass.model.User;
++import jakarta.servlet.ServletException;
++import jakarta.servlet.annotation.WebServlet;
++import jakarta.servlet.http.HttpServlet;
++import jakarta.servlet.http.HttpServletRequest;
++import jakarta.servlet.http.HttpServletResponse;
++
++import java.io.IOException;
++
++//@WebServlet("/register")
++public class RegisterServlet extends HttpServlet {
++    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
++        // 1. Get data from the JSP form
++        String firstName = request.getParameter("firstName");
++        String lastName = request.getParameter("lastName");
++        String email = request.getParameter("email");
++        String pass = request.getParameter("password");
++        String role = request.getParameter("role");
++
++        // 2. Create a User object (Ensure you fixed the 'abstract' error in the User model!)
++        User newUser = new User();
++        newUser.setFirstName(firstName);
++        newUser.setLastName(lastName);
++        newUser.setEmail(email);
++        newUser.setPassword(pass);
++        newUser.setRole(role);
++
++        // 3. Use UserDAO to save to MySQL
++        UserDAO dao = new UserDAO();
++        boolean success = dao.saveUser(newUser);
++
++        // This "?status=registered" is what triggers the <% if %> block in your login page
++        if (success) {
++            response.sendRedirect("login.jsp?status=registered");
++        } else {
++            response.sendRedirect("register.jsp?msg=error");
++        }
++    }
++}
+\ No newline at end of file
+Index: src/com/projectmass/controller/UpdateAppointmentServlet.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/com/projectmass/controller/UpdateAppointmentServlet.java b/src/com/projectmass/controller/UpdateAppointmentServlet.java
+new file mode 100644
+--- /dev/null	(date 1775317782073)
++++ b/src/com/projectmass/controller/UpdateAppointmentServlet.java	(date 1775317782073)
+@@ -0,0 +1,95 @@
++package com.projectmass.controller;
++
++import com.projectmass.dao.AppointmentDAO;
++import com.projectmass.model.User;
++import jakarta.servlet.ServletException;
++import jakarta.servlet.annotation.WebServlet;
++import jakarta.servlet.http.HttpServlet;
++import jakarta.servlet.http.HttpServletRequest;
++import jakarta.servlet.http.HttpServletResponse;
++import jakarta.servlet.http.HttpSession;
++
++import java.io.IOException;
++
++//@WebServlet("/updateAppointment")
++public class UpdateAppointmentServlet extends HttpServlet {
++
++    private final AppointmentDAO appointmentDAO = new AppointmentDAO();
++
++    // 🟢 Handles "Accept" and "Cancel" Clicks
++    @Override
++    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
++        String appointmentIdStr = request.getParameter("id");
++        String action = request.getParameter("action");
++
++        HttpSession session = request.getSession();
++        User user = (User) session.getAttribute("user");
++
++        // Fallback logic for redirection based on Role
++        String redirectPage = "login.jsp";
++        if (user != null) {
++            redirectPage = "DOCTOR".equals(user.getRole()) ? "doctorDashboard" : "patientDashboard";
++        }
++
++        System.out.println("--- UpdateAppointmentServlet (GET): Role=" + (user != null ? user.getRole() : "NULL") +
++                " | Action=" + action + " | ID=" + appointmentIdStr + " ---");
++
++        if (appointmentIdStr != null && action != null) {
++            try {
++                int appointmentId = Integer.parseInt(appointmentIdStr);
++                boolean success = false;
++
++                if ("accept".equalsIgnoreCase(action)) {
++                    // Doctor accepts patient request OR Patient accepts doctor's suggestion
++                    success = appointmentDAO.updateAppointmentStatus(appointmentId, "CONFIRMED", null, null);
++                } else if ("cancel".equalsIgnoreCase(action)) {
++                    success = appointmentDAO.cancelAppointment(appointmentId);
++                }
++
++                if (success) {
++                    System.out.println("--- UpdateAppointmentServlet: Action " + action + " succeeded! ---");
++                    redirectPage += "?msg=success";
++                } else {
++                    System.out.println("--- UpdateAppointmentServlet: Action " + action + " failed! ---");
++                    redirectPage += "?msg=error";
++                }
++
++            } catch (NumberFormatException e) {
++                System.err.println("--- UpdateAppointmentServlet: Invalid ID format ---");
++                redirectPage += "?msg=error";
++            }
++        }
++
++        response.sendRedirect(redirectPage);
++    }
++
++    // 🟡 Handles "Suggest Time" Form Submissions (The Modal)
++    @Override
++    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
++        String appointmentIdStr = request.getParameter("id");
++        String action = request.getParameter("action");
++        String newDate = request.getParameter("newDate");
++        String newTime = request.getParameter("newTime");
++
++        System.out.println("--- UpdateAppointmentServlet (POST): Rescheduling ID=" + appointmentIdStr + " to " + newDate + " " + newTime + " ---");
++
++        if (appointmentIdStr != null && "reschedule".equalsIgnoreCase(action)) {
++            try {
++                int appointmentId = Integer.parseInt(appointmentIdStr);
++
++                // This flips the appointment to 'RESCHEDULED' status and sets the date/time
++                boolean success = appointmentDAO.updateAppointmentStatus(appointmentId, "RESCHEDULED", newDate, newTime);
++
++                if (success) {
++                    System.out.println("--- UpdateAppointmentServlet: Successfully suggested new time! ---");
++                    response.sendRedirect("doctorDashboard?msg=success");
++                    return;
++                }
++            } catch (NumberFormatException e) {
++                System.err.println("--- UpdateAppointmentServlet: Invalid ID format ---");
++            }
++        }
++
++        response.sendRedirect("doctorDashboard?msg=error");
++    }
++}
+\ No newline at end of file

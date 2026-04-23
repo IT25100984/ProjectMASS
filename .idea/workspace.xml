@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="ProjectMASS:war exploded" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2abaf098-3f5a-45ac-94f0-03820bdbce01" name="Changes" comment="reinitialized modules">
+      <change beforePath="$PROJECT_DIR$/src/Test/HelloGithub.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/projectmass/dao/AppointmentDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/projectmass/dao/DoctorDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/projectmass/dao/PatientDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/projectmass/dao/UserDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/projectmass/dto/AppointmentDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/projectmass/model/Admin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/projectmass/model/Availability.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/projectmass/model/Doctor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/projectmass/model/Patient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/projectmass/model/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/projectmass/util/DBConnection.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/projectmass/util/TestConnection.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/gson-2.10.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/jakarta.servlet.jsp.jstl-3.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/jakarta.servlet.jsp.jstl-api-3.0.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/mysql-connector-j-9.6.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/book_appointment.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/doctor_dashboard.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/find_doctors.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/header.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/patient_dashboard.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/register.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+      <option value="repository" />
+    </option>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;IT25100984&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/IT25100984/ProjectMASS.git&quot;,
+    &quot;accountId&quot;: &quot;28cae276-d018-4bb2-88b4-7bfc392e6fbb&quot;
+  }
+}</component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="3AG6XrbBgdQnWtk0A5IsSg7WLyg" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HelloGithub.executor": "Run",
+    "Application.TestConnection.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.ProjectmassApplication.executor": "Run",
+    "Tomcat Server.Tomcat 10.1.52.executor": "Run",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ide.FileNotInSourceRootChecker.no.check": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.30527496",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "ChangesTree.GroupingKeys": [
+      "module",
+      "repository"
+    ],
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\SLIIT\IdeaProjects\ProjectMASS\src\main\java\com\projectmass" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.ProjectmassApplication">
+    <configuration name="TestConnection" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.projectmass.util.TestConnection" />
+      <module name="ProjectMASS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.projectmass.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProjectmassApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="projectmass" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.projectmass.ProjectmassApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tomcat 10.1.52" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.52" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="ProjectMASS:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="e1c869db-93ce-440c-8167-64513b9464ad" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="52917" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="ProjectMASS:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.TestConnection" />
+      <item itemvalue="Spring Boot.ProjectmassApplication" />
+      <item itemvalue="Tomcat Server.Tomcat 10.1.52" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.TestConnection" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.32098.37" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.32098.37" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="StructureViewState">
+    <option name="selectedTab" value="JSP" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2abaf098-3f5a-45ac-94f0-03820bdbce01" name="Changes" comment="" />
+      <created>1772206605600</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1772206605600</updated>
+      <workItem from="1772206607040" duration="4095000" />
+      <workItem from="1772697094271" duration="2822000" />
+      <workItem from="1772765894722" duration="3730000" />
+      <workItem from="1773111992886" duration="233000" />
+      <workItem from="1773480746881" duration="35899000" />
+      <workItem from="1773843384936" duration="20000" />
+      <workItem from="1775317844985" duration="875000" />
+      <workItem from="1775445073406" duration="481000" />
+      <workItem from="1775445796502" duration="9000" />
+      <workItem from="1776700545696" duration="26000" />
+      <workItem from="1776740228429" duration="946000" />
+      <workItem from="1776741397018" duration="7941000" />
+      <workItem from="1776751274294" duration="114000" />
+      <workItem from="1776751745781" duration="1189000" />
+      <workItem from="1776785502717" duration="12338000" />
+      <workItem from="1776866737403" duration="16340000" />
+      <workItem from="1776922998870" duration="4013000" />
+      <workItem from="1776945100403" duration="1060000" />
+    </task>
+    <task id="LOCAL-00001" summary="Add HelloGithub to Main">
+      <option name="closed" value="true" />
+      <created>1772206941635</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1772206941635</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Add User, Doctor, Patient and Admin class to model package">
+      <option name="closed" value="true" />
+      <created>1772211818199</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1772211818199</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Add User, Doctor, Patient and Admin class to model package">
+      <option name="closed" value="true" />
+      <created>1772698292427</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1772698292427</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Add User, Doctor, Patient and Admin class to model package. Created updateUser, Doctor and Patient methods. For additional changes">
+      <option name="closed" value="true" />
+      <created>1772766105556</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1772766105556</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Add User, Doctor, Patient and Admin class to model package. Created updateUser, Doctor and Patient methods. For additional changes">
+      <option name="closed" value="true" />
+      <created>1772769949122</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1772769949122</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added DBConnection and mysql_connector_j_9_6_0.xml to build sql database. Updated User class and fixed errors">
+      <option name="closed" value="true" />
+      <created>1772771171972</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1772771171972</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added comments to methods and constructors for better understanding of classes and relationships between them">
+      <option name="closed" value="true" />
+      <created>1772771987618</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1772771987618</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Updated Constructors and made use of &quot;super&quot; key word for parent class User">
+      <option name="closed" value="true" />
+      <created>1773481577432</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1773481577432</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Updated Constructors and made use of &quot;super&quot; key word for parent class User">
+      <option name="closed" value="true" />
+      <created>1776752317285</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1776752317285</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Updated Constructors and made use of &quot;super&quot; key word for parent class User">
+      <option name="closed" value="true" />
+      <created>1776752478291</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1776752478291</updated>
+    </task>
+    <task id="LOCAL-00011" summary="using tomcat and servlets created book appointment jsp">
+      <option name="closed" value="true" />
+      <created>1776752563360</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1776752563360</updated>
+    </task>
+    <task id="LOCAL-00012" summary="made changes to jsp files including header index login and register of patients and users">
+      <option name="closed" value="true" />
+      <created>1776752632953</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1776752632953</updated>
+    </task>
+    <task id="LOCAL-00013" summary="sorted xml files necessary for sql connections and servlets">
+      <option name="closed" value="true" />
+      <created>1776752704536</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1776752704536</updated>
+    </task>
+    <task id="LOCAL-00014" summary="included required jar files to run tomcat">
+      <option name="closed" value="true" />
+      <created>1776752753434</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1776752753434</updated>
+    </task>
+    <task id="LOCAL-00015" summary="reinitialized modules">
+      <option name="closed" value="true" />
+      <created>1776945494656</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1776945494657</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add HelloGithub to Main" />
+    <MESSAGE value="Add User, Doctor, Patient and Admin class to model package" />
+    <MESSAGE value="Add User, Doctor, Patient and Admin class to model package. Created updateUser, Doctor and Patient methods. For additional changes" />
+    <MESSAGE value="Added DBConnection and mysql_connector_j_9_6_0.xml to build sql database. Updated User class and fixed errors" />
+    <MESSAGE value="Added comments to methods and constructors for better understanding of classes and relationships between them" />
+    <MESSAGE value="Updated Constructors and made use of &quot;super&quot; key word for parent class User" />
+    <MESSAGE value="using tomcat and servlets created book appointment jsp" />
+    <MESSAGE value="made changes to jsp files including header index login and register of patients and users" />
+    <MESSAGE value="sorted xml files necessary for sql connections and servlets" />
+    <MESSAGE value="included required jar files to run tomcat" />
+    <MESSAGE value="reinitialized modules" />
+    <option name="LAST_COMMIT_MESSAGE" value="reinitialized modules" />
+  </component>
+</project>
