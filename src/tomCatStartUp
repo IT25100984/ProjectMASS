@@ -1,5 +1,0 @@
-$env:JAVA_HOME = "C:\Users\S_L_A_W\.jdks\temurin-20.0.2"
-
-.\startup.bat
-
-.\shutdown.bat
