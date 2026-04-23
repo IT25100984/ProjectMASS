@@ -9,34 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2abaf098-3f5a-45ac-94f0-03820bdbce01" name="Changes" comment="reinitialized modules">
-      <change beforePath="$PROJECT_DIR$/src/Test/HelloGithub.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/projectmass/dao/AppointmentDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/projectmass/dao/DoctorDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/projectmass/dao/PatientDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/projectmass/dao/UserDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/projectmass/dto/AppointmentDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/projectmass/model/Admin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/projectmass/model/Availability.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/projectmass/model/Doctor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/projectmass/model/Patient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/projectmass/model/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/projectmass/util/DBConnection.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/projectmass/util/TestConnection.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/gson-2.10.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/jakarta.servlet.jsp.jstl-3.0.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/jakarta.servlet.jsp.jstl-api-3.0.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/mysql-connector-j-9.6.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/book_appointment.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/doctor_dashboard.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/find_doctors.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/header.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/patient_dashboard.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/register.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" />
-    </list>
+    <list default="true" id="2abaf098-3f5a-45ac-94f0-03820bdbce01" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,6 +18,7 @@
   <component name="ChangesViewManager">
     <option name="groupingKeys">
       <option value="directory" />
+      <option value="module" />
       <option value="repository" />
     </option>
   </component>
@@ -124,14 +98,10 @@
     "project.structure.last.edited": "SDKs",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.30527496",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "settings.editor.selected.configurable": "project.propVCSSupport.CommitDialog",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
-    "ChangesTree.GroupingKeys": [
-      "module",
-      "repository"
-    ],
     "DatabaseDriversLRU": [
       "mysql"
     ]
@@ -296,7 +266,7 @@
       <workItem from="1776785502717" duration="12338000" />
       <workItem from="1776866737403" duration="16340000" />
       <workItem from="1776922998870" duration="4013000" />
-      <workItem from="1776945100403" duration="1060000" />
+      <workItem from="1776950087105" duration="816000" />
     </task>
     <task id="LOCAL-00001" summary="Add HelloGithub to Main">
       <option name="closed" value="true" />
@@ -410,21 +380,41 @@
       <option name="project" value="LOCAL" />
       <updated>1776752753434</updated>
     </task>
-    <task id="LOCAL-00015" summary="reinitialized modules">
+    <task id="LOCAL-00015" summary="included required jar files to run springboot">
       <option name="closed" value="true" />
-      <created>1776945494656</created>
+      <created>1776948145944</created>
       <option name="number" value="00015" />
       <option name="presentableId" value="LOCAL-00015" />
       <option name="project" value="LOCAL" />
-      <updated>1776945494657</updated>
+      <updated>1776948145944</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="idea directory">
+      <option name="closed" value="true" />
+      <created>1776949844470</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1776949844470</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT_PROFILE" value="Project Default" />
     <MESSAGE value="Add HelloGithub to Main" />
     <MESSAGE value="Add User, Doctor, Patient and Admin class to model package" />
     <MESSAGE value="Add User, Doctor, Patient and Admin class to model package. Created updateUser, Doctor and Patient methods. For additional changes" />
@@ -435,7 +425,8 @@
     <MESSAGE value="made changes to jsp files including header index login and register of patients and users" />
     <MESSAGE value="sorted xml files necessary for sql connections and servlets" />
     <MESSAGE value="included required jar files to run tomcat" />
-    <MESSAGE value="reinitialized modules" />
-    <option name="LAST_COMMIT_MESSAGE" value="reinitialized modules" />
+    <MESSAGE value="included required jar files to run springboot" />
+    <MESSAGE value="idea directory" />
+    <option name="LAST_COMMIT_MESSAGE" value="idea directory" />
   </component>
 </project>
