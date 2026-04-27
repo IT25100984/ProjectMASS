@@ -9,9 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2abaf098-3f5a-45ac-94f0-03820bdbce01" name="Changes" comment="idea repo update">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="2abaf098-3f5a-45ac-94f0-03820bdbce01" name="Changes" comment="Implemented AppointmentDAO">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/projectmass/controller/AppointmentController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/projectmass/controller/DashboardController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/projectmass/dao/AppointmentDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/doctor_dashboard.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/patient_dashboard.jsp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -273,7 +276,7 @@
       <workItem from="1776951218436" duration="1807000" />
       <workItem from="1776953334863" duration="121000" />
       <workItem from="1777278436509" duration="317000" />
-      <workItem from="1777281464354" duration="819000" />
+      <workItem from="1777281464354" duration="2055000" />
     </task>
     <task id="LOCAL-00001" summary="Add HelloGithub to Main">
       <option name="closed" value="true" />
@@ -411,7 +414,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776951276649</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Implemented AppointmentDAO">
+      <option name="closed" value="true" />
+      <created>1777282448508</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1777282448509</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -443,6 +454,7 @@
     <MESSAGE value="included required jar files to run springboot" />
     <MESSAGE value="idea directory" />
     <MESSAGE value="idea repo update" />
-    <option name="LAST_COMMIT_MESSAGE" value="idea repo update" />
+    <MESSAGE value="Implemented AppointmentDAO" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented AppointmentDAO" />
   </component>
 </project>
