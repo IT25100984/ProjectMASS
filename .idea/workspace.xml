@@ -9,9 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2abaf098-3f5a-45ac-94f0-03820bdbce01" name="Changes" comment="Upload basic SpringBoot Java Structure">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="2abaf098-3f5a-45ac-94f0-03820bdbce01" name="Changes" comment="Add AppointmentDAO to DAO" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -273,7 +271,7 @@
       <workItem from="1776953334863" duration="121000" />
       <workItem from="1777278436509" duration="317000" />
       <workItem from="1777281464354" duration="2305000" />
-      <workItem from="1777306219168" duration="532000" />
+      <workItem from="1777306219168" duration="979000" />
     </task>
     <task id="LOCAL-00001" summary="Add HelloGithub to Main">
       <option name="closed" value="true" />
@@ -427,7 +425,15 @@
       <option name="project" value="LOCAL" />
       <updated>1777283674119</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Add AppointmentDAO to DAO">
+      <option name="closed" value="true" />
+      <created>1777306834454</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1777306834455</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -461,6 +467,7 @@
     <MESSAGE value="idea repo update" />
     <MESSAGE value="Implemented AppointmentDAO" />
     <MESSAGE value="Upload basic SpringBoot Java Structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="Upload basic SpringBoot Java Structure" />
+    <MESSAGE value="Add AppointmentDAO to DAO" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add AppointmentDAO to DAO" />
   </component>
 </project>
