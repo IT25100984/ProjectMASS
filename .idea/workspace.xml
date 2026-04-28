@@ -9,9 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2abaf098-3f5a-45ac-94f0-03820bdbce01" name="Changes" comment="Update book_appointment to recognize last_modified user and disable accept appointment by them.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="2abaf098-3f5a-45ac-94f0-03820bdbce01" name="Changes" comment="Update workspace.xml" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -274,7 +272,7 @@
       <workItem from="1777278436509" duration="317000" />
       <workItem from="1777281464354" duration="2305000" />
       <workItem from="1777306219168" duration="2890000" />
-      <workItem from="1777344528919" duration="951000" />
+      <workItem from="1777344528919" duration="1071000" />
     </task>
     <task id="LOCAL-00001" summary="Add HelloGithub to Main">
       <option name="closed" value="true" />
@@ -524,7 +522,15 @@
       <option name="project" value="LOCAL" />
       <updated>1777344941016</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Update workspace.xml">
+      <option name="closed" value="true" />
+      <created>1777345533960</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1777345533960</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -560,7 +566,6 @@
     <MESSAGE value="update workspace.xml" />
     <MESSAGE value="Add AppointmentController.java to controllers" />
     <MESSAGE value="Add AppointmentDTO to dto" />
-    <MESSAGE value="Update workspace.xml" />
     <MESSAGE value="Add Admin.java to models" />
     <MESSAGE value="Add book_appointment.jsp user interface to jsp folder" />
     <MESSAGE value="Add header.jsp to jsp folder" />
@@ -568,6 +573,7 @@
     <MESSAGE value="Add Authenticator utility to util" />
     <MESSAGE value="Add Database (SQL) Connection Details and Test Connection file implementation to utils folder" />
     <MESSAGE value="Update book_appointment to recognize last_modified user and disable accept appointment by them." />
-    <option name="LAST_COMMIT_MESSAGE" value="Update book_appointment to recognize last_modified user and disable accept appointment by them." />
+    <MESSAGE value="Update workspace.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update workspace.xml" />
   </component>
 </project>
