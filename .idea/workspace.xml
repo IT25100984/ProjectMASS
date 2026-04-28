@@ -9,9 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2abaf098-3f5a-45ac-94f0-03820bdbce01" name="Changes" comment="Add Database (SQL) Connection Details and Test Connection file implementation to utils folder">
+    <list default="true" id="2abaf098-3f5a-45ac-94f0-03820bdbce01" name="Changes" comment="Update book_appointment to recognize last_modified user and disable accept appointment by them.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/book_appointment.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/book_appointment.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -275,7 +274,7 @@
       <workItem from="1777278436509" duration="317000" />
       <workItem from="1777281464354" duration="2305000" />
       <workItem from="1777306219168" duration="2890000" />
-      <workItem from="1777344528919" duration="186000" />
+      <workItem from="1777344528919" duration="951000" />
     </task>
     <task id="LOCAL-00001" summary="Add HelloGithub to Main">
       <option name="closed" value="true" />
@@ -517,7 +516,15 @@
       <option name="project" value="LOCAL" />
       <updated>1777308458331</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Update book_appointment to recognize last_modified user and disable accept appointment by them.">
+      <option name="closed" value="true" />
+      <created>1777344941016</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1777344941016</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -536,7 +543,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT_PROFILE" value="Project Default" />
-    <MESSAGE value="Add User, Doctor, Patient and Admin class to model package" />
     <MESSAGE value="Add User, Doctor, Patient and Admin class to model package. Created updateUser, Doctor and Patient methods. For additional changes" />
     <MESSAGE value="Added DBConnection and mysql_connector_j_9_6_0.xml to build sql database. Updated User class and fixed errors" />
     <MESSAGE value="Added comments to methods and constructors for better understanding of classes and relationships between them" />
@@ -561,6 +567,7 @@
     <MESSAGE value="Add index.jsp to jsp folder" />
     <MESSAGE value="Add Authenticator utility to util" />
     <MESSAGE value="Add Database (SQL) Connection Details and Test Connection file implementation to utils folder" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Database (SQL) Connection Details and Test Connection file implementation to utils folder" />
+    <MESSAGE value="Update book_appointment to recognize last_modified user and disable accept appointment by them." />
+    <option name="LAST_COMMIT_MESSAGE" value="Update book_appointment to recognize last_modified user and disable accept appointment by them." />
   </component>
 </project>
