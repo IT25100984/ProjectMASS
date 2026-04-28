@@ -71,7 +71,12 @@
                 </div>
 
                 <div class="d-grid gap-2">
-                    <button type="submit" class="btn btn-primary py-2 shadow-sm">Confirm Booking</button>
+                    <%-- If the person viewing the page is the one who last modified it, disable the button --%>
+                    <button type="submit"
+                            class="btn btn-success"
+                    ${sessionScope.user.userID == appt.lastModifiedBy ? 'disabled' : ''}>
+                        Confirm Booking
+                    </button>
                     <a href="patientDashboard" class="btn btn-outline-secondary">Back to Dashboard</a>
                 </div>
             </form>
@@ -112,103 +117,103 @@
         });
     }
 
-   function updateDoctorList() {
-       const specSelect = document.getElementById("specializationSelect");
-       const doctorSelect = document.getElementById("doctorSelect");
+    function updateDoctorList() {
+        const specSelect = document.getElementById("specializationSelect");
+        const doctorSelect = document.getElementById("doctorSelect");
 
-       if (!specSelect || !doctorSelect) return;
-       let spec = specSelect.value;
+        if (!specSelect || !doctorSelect) return;
+        let spec = specSelect.value;
 
-       // 🛑 REMOVE the return here. Instead, normalize the value:
-       if (spec === "Select Specialization" || spec === "All Specializations") {
-           spec = ""; // Sending an empty string tells the Servlet to fetch ALL
-       }
+        // 🛑 REMOVE the return here. Instead, normalize the value:
+        if (spec === "Select Specialization" || spec === "All Specializations") {
+            spec = ""; // Sending an empty string tells the Servlet to fetch ALL
+        }
 
-       const url = "getDoctorsBySpec?specialization=" + encodeURIComponent(spec);
+        const url = "getDoctorsBySpec?specialization=" + encodeURIComponent(spec);
 
-       fetch(url)
-           .then(response => response.json())
-           .then(doctors => {
-               doctorSelect.innerHTML = '<option value="" selected disabled>Choose a doctor...</option>';
+        fetch(url)
+            .then(response => response.json())
+            .then(doctors => {
+                doctorSelect.innerHTML = '<option value="" selected disabled>Choose a doctor...</option>';
 
-               if (doctors.length === 0) {
-                   doctorSelect.innerHTML = '<option disabled>No doctors available</option>';
-                   return;
-               }
+                if (doctors.length === 0) {
+                    doctorSelect.innerHTML = '<option disabled>No doctors available</option>';
+                    return;
+                }
 
-               doctors.forEach(doc => {
-                   const option = document.createElement("option");
-                   // Ensure doc.userID matches your DoctorDTO field name exactly
-                   option.value = doc.userID;
-                   option.textContent = "Dr. " + (doc.firstName || "Unknown") + " " + (doc.lastName || "");
-                   doctorSelect.appendChild(option);
-               });
-           })
-           .catch(err => {
-               console.error("Error:", err);
-               doctorSelect.innerHTML = '<option disabled>Error loading doctors</option>';
-           });
-   }
+                doctors.forEach(doc => {
+                    const option = document.createElement("option");
+                    // Ensure doc.userID matches your DoctorDTO field name exactly
+                    option.value = doc.userID;
+                    option.textContent = "Dr. " + (doc.firstName || "Unknown") + " " + (doc.lastName || "");
+                    doctorSelect.appendChild(option);
+                });
+            })
+            .catch(err => {
+                console.error("Error:", err);
+                doctorSelect.innerHTML = '<option disabled>Error loading doctors</option>';
+            });
+    }
 
-   function fetchSlots() {
-       const doctorSelect = document.getElementById("doctorSelect");
-       const dateInput = document.getElementById("datePicker");
-       const timeSelect = document.getElementById("timeSlotSelect");
+    function fetchSlots() {
+        const doctorSelect = document.getElementById("doctorSelect");
+        const dateInput = document.getElementById("datePicker");
+        const timeSelect = document.getElementById("timeSlotSelect");
 
-       // Get current values
-       const doctorId = doctorSelect ? doctorSelect.value : "";
-       const rawDate = dateInput ? dateInput.value : "";
+        // Get current values
+        const doctorId = doctorSelect ? doctorSelect.value : "";
+        const rawDate = dateInput ? dateInput.value : "";
 
-       // Prepare the URL
-       const sanitizedDate = rawDate.replace(/\//g, "-");
+        // Prepare the URL
+        const sanitizedDate = rawDate.replace(/\//g, "-");
 
-       const params = new URLSearchParams();
-       params.append("doctorId", doctorId);
-       params.append("date", sanitizedDate);
+        const params = new URLSearchParams();
+        params.append("doctorId", doctorId);
+        params.append("date", sanitizedDate);
 
-       // DEBUGGING: Confirm these show in your F12 console
-       console.log("Doctor ID detected:", doctorId);
-       console.log("Original Date from UI:", rawDate);
+        // DEBUGGING: Confirm these show in your F12 console
+        console.log("Doctor ID detected:", doctorId);
+        console.log("Original Date from UI:", rawDate);
 
-       // SAFETY GUARD: Prevent the call if data is missing
-       if (!doctorId || !rawDate) {
-           console.warn("Fetch blocked: Doctor or Date is missing.");
-           return;
-       }
+        // SAFETY GUARD: Prevent the call if data is missing
+        if (!doctorId || !rawDate) {
+            console.warn("Fetch blocked: Doctor or Date is missing.");
+            return;
+        }
 
-       const queryString = params.toString();
-       const finalUrl = "getAvailableSlots?" + queryString;
+        const queryString = params.toString();
+        const finalUrl = "getAvailableSlots?" + queryString;
 
-       // DEBUGGING: This MUST show the full string now
-       console.log("Query String generated:", queryString);
-       console.log("Final URL being called:", finalUrl);
+        // DEBUGGING: This MUST show the full string now
+        console.log("Query String generated:", queryString);
+        console.log("Final URL being called:", finalUrl);
 
-       timeSelect.innerHTML = '<option value="" selected disabled>Loading hours...</option>';
+        timeSelect.innerHTML = '<option value="" selected disabled>Loading hours...</option>';
 
-       fetch(finalUrl)
-           .then(response => {
-               if (!response.ok) throw new Error("Server Error: " + response.status);
-               return response.json();
-           })
-           .then(slots => {
-               timeSelect.innerHTML = '';
-               if (!slots || slots.length === 0) {
-                   timeSelect.innerHTML = '<option value="" disabled>No available hours found.</option>';
-               } else {
-                   timeSelect.innerHTML = '<option value="" selected disabled>Choose a time...</option>';
-                   slots.forEach(slot => {
-                       const option = document.createElement("option");
-                       option.value = slot;
-                       option.text = slot;
-                       timeSelect.appendChild(option);
-                   });
-               }
-           })
-           .catch(err => {
-               console.error("AJAX Error:", err);
-               timeSelect.innerHTML = '<option value="" disabled>Error loading slots.</option>';
-           });
-   }
+        fetch(finalUrl)
+            .then(response => {
+                if (!response.ok) throw new Error("Server Error: " + response.status);
+                return response.json();
+            })
+            .then(slots => {
+                timeSelect.innerHTML = '';
+                if (!slots || slots.length === 0) {
+                    timeSelect.innerHTML = '<option value="" disabled>No available hours found.</option>';
+                } else {
+                    timeSelect.innerHTML = '<option value="" selected disabled>Choose a time...</option>';
+                    slots.forEach(slot => {
+                        const option = document.createElement("option");
+                        option.value = slot;
+                        option.text = slot;
+                        timeSelect.appendChild(option);
+                    });
+                }
+            })
+            .catch(err => {
+                console.error("AJAX Error:", err);
+                timeSelect.innerHTML = '<option value="" disabled>Error loading slots.</option>';
+            });
+    }
 </script>
 </body>
 </html>
