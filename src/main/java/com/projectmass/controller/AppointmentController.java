@@ -1,6 +1,7 @@
 package com.projectmass.controller;
 
 import com.projectmass.dao.AppointmentDAO;
+import com.projectmass.dao.AppointmentDAOInterface;
 import com.projectmass.dao.UserDAO;
 import com.projectmass.model.User;
 import jakarta.servlet.http.HttpSession;
@@ -17,8 +18,12 @@ import java.util.List;
 @Controller
 public class AppointmentController {
 
+    private final AppointmentDAOInterface apptDAO;
+
     @Autowired
-    private AppointmentDAO apptDAO;
+    public AppointmentController(AppointmentDAOInterface appointmentDAO) {
+        this.apptDAO = appointmentDAO;
+    }
 
     @Autowired
     private UserDAO userDAO;
