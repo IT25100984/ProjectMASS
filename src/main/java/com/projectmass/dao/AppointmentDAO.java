@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class AppointmentDAO {
+public class AppointmentDAO implements AppointmentDAOInterface {
 
     private final JdbcTemplate jdbcTemplate;
 
