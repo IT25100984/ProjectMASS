@@ -74,7 +74,7 @@
                     <%-- If the person viewing the page is the one who last modified it, disable the button --%>
                     <button type="submit"
                             class="btn btn-success"
-                    ${sessionScope.user.userID == appt.lastModifiedBy ? 'disabled' : ''}>
+                            ${sessionScope.user.userID == appt.lastModifiedBy ? 'disabled' : ''}>
                         Confirm Booking
                     </button>
                     <a href="patientDashboard" class="btn btn-outline-secondary">Back to Dashboard</a>
@@ -124,7 +124,6 @@
         if (!specSelect || !doctorSelect) return;
         let spec = specSelect.value;
 
-        // 🛑 REMOVE the return here. Instead, normalize the value:
         if (spec === "Select Specialization" || spec === "All Specializations") {
             spec = ""; // Sending an empty string tells the Servlet to fetch ALL
         }
