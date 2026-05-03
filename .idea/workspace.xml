@@ -9,7 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2abaf098-3f5a-45ac-94f0-03820bdbce01" name="Changes" comment="Update workspace.xml" />
+    <list default="true" id="2abaf098-3f5a-45ac-94f0-03820bdbce01" name="Changes" comment="Update workspace.xml">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_04_2026_11_49_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_04_2026_11_49__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -74,6 +78,10 @@
     "Application.HelloGithub.executor": "Run",
     "Application.TestConnection.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Notification.DisplayName-DoNotAsk-DatabaseConfigFileWatcher.found": "New/updated database configurations found",
+    "Notification.DisplayName-DoNotAsk-No data sources detected": "No data sources detected",
+    "Notification.DoNotAsk-DatabaseConfigFileWatcher.found": "true",
+    "Notification.DoNotAsk-No data sources detected": "true",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -273,6 +281,8 @@
       <workItem from="1777281464354" duration="2305000" />
       <workItem from="1777306219168" duration="2890000" />
       <workItem from="1777344528919" duration="1071000" />
+      <workItem from="1777346821750" duration="1107000" />
+      <workItem from="1777475335515" duration="256000" />
     </task>
     <task id="LOCAL-00001" summary="Add HelloGithub to Main">
       <option name="closed" value="true" />
@@ -530,7 +540,39 @@
       <option name="project" value="LOCAL" />
       <updated>1777345533960</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Add Appointment Interface to DAO and implement in Appointment">
+      <option name="closed" value="true" />
+      <created>1777347078677</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1777347078677</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Update AppointmentDAO to implement interface">
+      <option name="closed" value="true" />
+      <created>1777347115594</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1777347115594</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Update AppointmentController to make use of Interface feature">
+      <option name="closed" value="true" />
+      <created>1777347161359</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1777347161359</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Update workspace.xml">
+      <option name="closed" value="true" />
+      <created>1777347185297</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1777347185300</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -549,9 +591,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT_PROFILE" value="Project Default" />
-    <MESSAGE value="Add User, Doctor, Patient and Admin class to model package. Created updateUser, Doctor and Patient methods. For additional changes" />
-    <MESSAGE value="Added DBConnection and mysql_connector_j_9_6_0.xml to build sql database. Updated User class and fixed errors" />
-    <MESSAGE value="Added comments to methods and constructors for better understanding of classes and relationships between them" />
     <MESSAGE value="Updated Constructors and made use of &quot;super&quot; key word for parent class User" />
     <MESSAGE value="using tomcat and servlets created book appointment jsp" />
     <MESSAGE value="made changes to jsp files including header index login and register of patients and users" />
@@ -573,6 +612,9 @@
     <MESSAGE value="Add Authenticator utility to util" />
     <MESSAGE value="Add Database (SQL) Connection Details and Test Connection file implementation to utils folder" />
     <MESSAGE value="Update book_appointment to recognize last_modified user and disable accept appointment by them." />
+    <MESSAGE value="Add Appointment Interface to DAO and implement in Appointment" />
+    <MESSAGE value="Update AppointmentDAO to implement interface" />
+    <MESSAGE value="Update AppointmentController to make use of Interface feature" />
     <MESSAGE value="Update workspace.xml" />
     <option name="LAST_COMMIT_MESSAGE" value="Update workspace.xml" />
   </component>
