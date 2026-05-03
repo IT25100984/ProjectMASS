@@ -9,15 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2abaf098-3f5a-45ac-94f0-03820bdbce01" name="Changes" comment="Update workspace.xml">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/projectmass/controller/AppointmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projectmass/controller/AppointmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/projectmass/dao/AppointmentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projectmass/dao/AppointmentDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/projectmass/dao/AppointmentDAOInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projectmass/dao/AppointmentDAOInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/projectmass/dto/AppointmentDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projectmass/dto/AppointmentDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/projectmass/util/TestConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projectmass/util/TestConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/book_appointment.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/book_appointment.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/header.jsp" afterDir="false" />
-    </list>
+    <list default="true" id="2abaf098-3f5a-45ac-94f0-03820bdbce01" name="Changes" comment="Update header.jsp" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -287,7 +279,7 @@
       <workItem from="1777344528919" duration="1071000" />
       <workItem from="1777346821750" duration="1107000" />
       <workItem from="1777475335515" duration="256000" />
-      <workItem from="1777786789752" duration="304000" />
+      <workItem from="1777786789752" duration="711000" />
     </task>
     <task id="LOCAL-00001" summary="Add HelloGithub to Main">
       <option name="closed" value="true" />
@@ -585,7 +577,63 @@
       <option name="project" value="LOCAL" />
       <updated>1777787083534</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Update AppointmentController.java">
+      <option name="closed" value="true" />
+      <created>1777787126515</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1777787126515</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Update AppointmentDAO.java">
+      <option name="closed" value="true" />
+      <created>1777787153337</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1777787153337</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Update AppointmentDAOInterface.java">
+      <option name="closed" value="true" />
+      <created>1777787294214</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1777787294214</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Update AppointmentDTO.java to enable cost of appointments">
+      <option name="closed" value="true" />
+      <created>1777787376597</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1777787376597</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Update TestConnection.java">
+      <option name="closed" value="true" />
+      <created>1777787404922</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1777787404922</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Update book_appointment.jsp user interface to include display of appointment costs and previous appointments with selected doctor">
+      <option name="closed" value="true" />
+      <created>1777787468140</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1777787468140</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Update header.jsp">
+      <option name="closed" value="true" />
+      <created>1777787497247</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1777787497247</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -604,13 +652,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT_PROFILE" value="Project Default" />
-    <MESSAGE value="Updated Constructors and made use of &quot;super&quot; key word for parent class User" />
-    <MESSAGE value="using tomcat and servlets created book appointment jsp" />
-    <MESSAGE value="made changes to jsp files including header index login and register of patients and users" />
-    <MESSAGE value="sorted xml files necessary for sql connections and servlets" />
-    <MESSAGE value="included required jar files to run tomcat" />
-    <MESSAGE value="included required jar files to run springboot" />
-    <MESSAGE value="idea directory" />
     <MESSAGE value="idea repo update" />
     <MESSAGE value="Implemented AppointmentDAO" />
     <MESSAGE value="Upload basic SpringBoot Java Structure" />
@@ -629,6 +670,13 @@
     <MESSAGE value="Update AppointmentDAO to implement interface" />
     <MESSAGE value="Update AppointmentController to make use of Interface feature" />
     <MESSAGE value="Update workspace.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update workspace.xml" />
+    <MESSAGE value="Update AppointmentController.java" />
+    <MESSAGE value="Update AppointmentDAO.java" />
+    <MESSAGE value="Update AppointmentDAOInterface.java" />
+    <MESSAGE value="Update AppointmentDTO.java to enable cost of appointments" />
+    <MESSAGE value="Update TestConnection.java" />
+    <MESSAGE value="Update book_appointment.jsp user interface to include display of appointment costs and previous appointments with selected doctor" />
+    <MESSAGE value="Update header.jsp" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update header.jsp" />
   </component>
 </project>
