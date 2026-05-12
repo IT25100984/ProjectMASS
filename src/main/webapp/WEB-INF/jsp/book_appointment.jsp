@@ -56,6 +56,7 @@
                         <%-- Change value to "All Specializations" to match your JS check --%>
                         <option value="All Specializations">All Specializations</option>
                         <option value="General Practitioner">General Practitioner</option>
+                        <option value="Pharmacist">Pharmacist</option>
                         <option value="Dermatology">Dermatology</option>
                         <option value="Cardiology">Cardiology</option>
                         <option value="Pediatric">Pediatric</option>
