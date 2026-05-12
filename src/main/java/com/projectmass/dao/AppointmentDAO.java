@@ -4,7 +4,7 @@ import com.projectmass.dto.AppointmentDTO;
 import com.projectmass.model.Appointment;
 import com.projectmass.model.Consultation;
 import com.projectmass.model.Surgery;
-import com.projectmass.service.FileService;
+import com.projectmass.service.ApptFileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -16,15 +16,18 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public class AppointmentDAO implements AppointmentDAOInterface {
 
     private final JdbcTemplate jdbcTemplate;
+    private final ApptFileService apptFileService;
 
     @Autowired
-    public AppointmentDAO(DataSource dataSource) {
+    public AppointmentDAO(DataSource dataSource, ApptFileService apptFileService) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
+        this.apptFileService = apptFileService;
     }
 
 
@@ -132,7 +135,7 @@ public class AppointmentDAO implements AppointmentDAOInterface {
             try {
                 String fetchSql = "SELECT patient_id, doctor_id, appointment_type, additional_charge, appt_date, appt_time " +
                         "FROM appointments WHERE appointment_id = ?";
-                java.util.Map<String, Object> data = jdbcTemplate.queryForMap(fetchSql, appointmentID);
+                Map<String, Object> data = jdbcTemplate.queryForMap(fetchSql, appointmentID);
 
                 String type = (String) data.get("appointment_type");
                 String addCharge = (String) data.get("additional_charge");
@@ -158,7 +161,7 @@ public class AppointmentDAO implements AppointmentDAOInterface {
                         fee,
                         actualDate+"T"+actualTime);
 
-                com.projectmass.service.FileService.logAppointmentToHistory(logEntry);
+                apptFileService.logToFile(logEntry);
 
             } catch (Exception e) {
                 e.printStackTrace();
