@@ -3,6 +3,7 @@ package com.projectmass.controller;
 import com.projectmass.dao.AppointmentDAO;
 import com.projectmass.dao.AppointmentDAOInterface;
 import com.projectmass.dao.UserDAO;
+import com.projectmass.model.Doctor;
 import com.projectmass.model.User;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,13 +22,15 @@ public class AppointmentController {
     private final AppointmentDAOInterface apptDAO;
 
     @Autowired
-    public AppointmentController(AppointmentDAOInterface appointmentDAO) {
+    public AppointmentController(AppointmentDAOInterface appointmentDAO){
         this.apptDAO = appointmentDAO;
     }
 
     @Autowired
-    private UserDAO userDAO;
+    private com.projectmass.service.ApptFileService apptFileService;
 
+    @Autowired
+    private UserDAO userDAO;
 
     @GetMapping("/getAvailableSlots")
     @ResponseBody
@@ -51,8 +54,8 @@ public class AppointmentController {
         User user = (User) session.getAttribute("user");
         int patientID = user.getUserID();
 
-        // Call FileService to read billHistory.txt and filter results
-        return com.projectmass.service.FileService.readHistory(patientID, doctorID);
+        // Call ApptFileService to read billHistory.txt and filter results
+        return apptFileService.readFile(patientID, doctorID);
     }
 
     // Handles Appointment Booking (POST) - UPDATED
@@ -106,7 +109,18 @@ public class AppointmentController {
         }
 
         // Role-based redirect logic
-        String dashboard = "DOCTOR".equalsIgnoreCase(user.getRole()) ? "doctorDashboard" : "patientDashboard";
+        String dashboard;
+        if ("DOCTOR".equalsIgnoreCase(user.getRole())) {
+            // Cast to Doctor to access the getSpecialization() method
+            Doctor doc = (Doctor) user;
+            dashboard = "PHARMACIST".equalsIgnoreCase(doc.getSpecialization())
+                    ? "pharmacistDashboard"
+                    : "doctorDashboard";
+        } else if ("ADMIN".equalsIgnoreCase(user.getRole())) {
+            dashboard = "adminDashboard";
+        } else {
+            dashboard = "patientDashboard";
+        }
 
         if (success) {
             return "redirect:/" + dashboard + "?msg=" + action + "Success";
