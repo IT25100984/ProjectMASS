@@ -1,6 +1,6 @@
 ProjectMASS also known as Project - Medical Appointment Scheduling System. Is a project conducted by Group 006 WD Y1S2 of SLIIT. 
 The system consists of users such as patients (make appointments), doctors (accept or change appointment), pharmacists (handle medicine orders) and admins (handle basic requests and review data)
-It features a a clean MVC (Model-View-Controller) pattern combined with a data access layer of SQL and text files.
+It features a clean MVC (Model-View-Controller) pattern combined with a data access layer of SQL and text files.
 The user-interfaces incluse patient dashboard, doctor dashboard, admin dashboard, pharmacist dashboard, feedback form, book appointment, registration, index and login page.
 
 Controller Layer: Acts as the traffic cop. It listens for incoming HTTP requests (like a patient booking a slot), talks to the data layer, and returns the correct view or data.
